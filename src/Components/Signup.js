@@ -29,7 +29,8 @@ export default function Signup() {
       const user = await signup(emailRef.current.value, passwordRef.current.value)
 
       await user.user.updateProfile({
-        displayName: name
+        displayName: name,
+        photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${name}&radius=50`
       })
       history('/')
     } catch (e) {

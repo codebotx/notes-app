@@ -29,7 +29,6 @@ export default function Login() {
   const [errorDef, setErrorDef] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const [cancel, setCancel] = useState(null)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -37,8 +36,7 @@ export default function Login() {
       setError('')
       setErrorDef('')
       setLoading(true)
-      const cancel = await login(emailRef.current.value, passwordRef.current.value)
-      setCancel(cancel)
+      await login(emailRef.current.value, passwordRef.current.value)
       navigate('/')
     } catch (e) {
       setError('Failed to log in')
@@ -65,9 +63,11 @@ export default function Login() {
   }, [error, errorDef])
 
 
-  const signInWithGoogle = () => {
+  const signInWithGoogle = async() => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+    const user = await auth.signInWithPopup(provider);
+
+    if(!user.user.photoURL !== 'https://api.dicebear.com/5.x/croodles/svg?seed=' + user.user.displayName + '&radius=50') user.user.updateProfile({ photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${auth.currentUser.displayName}&radius=50` })
   }
 
   if (loading) return (<Loader />)
