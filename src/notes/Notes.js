@@ -1,6 +1,7 @@
 import React from 'react'
 import programming from '../assets/img/programming.svg'
 import { Link } from 'react-router-dom'
+// const data = React.lazy(() => import('./data.json'))
 import data from './data.json'
 export default function Notes() {
 	return (

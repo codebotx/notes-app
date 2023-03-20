@@ -59,8 +59,8 @@ function PreviewNotes(props) {
 					</ul>
 				</div>
 			</div>
-			<div className=" px-3 px-sm-5 ">
-				<h1 className='mt-3 ps-2'> Contributors</h1>
+			<div className=" px-3 p-sm-5 ">
+				<h2 className='mt-3 ps-2'> Contributors</h2>
 				<div className='mt-3'>
 					<ul style={{
 						listStyleType: "none",
