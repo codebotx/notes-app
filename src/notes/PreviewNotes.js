@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
-import ufo from '../assets/img/preview.png'
+import ufo from '../assets/img/note-taking.svg'
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import Loader from '../Components/Loader';
 const storage = getStorage();
@@ -68,14 +68,14 @@ function PreviewNotes(props) {
 					<div className="d-sm-flex align-items-center justify-content-between mainc">
 						<div className="img-home">
 							<h1 className="heading">{name}<span></span></h1>
-							<p className="lead my-4">
+							<p className="">
 								{description}
 								</p>
 							<p className='text-var'>
 								Find the syllabus <a href="/static/notes/UG-BTECH-CSE-2018.pdf" className=' text-var'>here</a>.
 							</p>
 						</div>
-						<img className="img-fluid w-50 d-none d-sm-block ufo" src={ufo} alt="in office" />
+						<img className="img-fluid w-50 d-none d-sm-block" src={ufo} alt="in office" />
 					</div>
 				</div>
 			</section>
