@@ -1,36 +1,67 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import ufo from '../assets/img/preview.png'
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import Loader from '../Components/Loader';
+const storage = getStorage();
 
 function PreviewNotes(props) {
 	const location = useLocation();
 
 	const { name, description } = location?.state;
-	const [links, setLinks] = React.useState([])
+	const [urls, setUrls] = React.useState([])
 	const [contributors, setContributors] = React.useState([])
+	const [links , setLinks] = React.useState([])
+	const [loading, setLoading] = React.useState(true)
+
 
 	React.useEffect(() => {
-		const links = []
+		setLoading(true)
+		if (location.state?.links) {
+			location.state.links.forEach(link => {
+				const notesRef = ref(storage, `/notes/${link[1]}`);
+				getDownloadURL(notesRef).then((url) => {
+					// console.log(url)
+				setUrls(urls => [...urls, [link[0], url]])
+				}).catch((error) => {
+					console.log(error)
+				});
+			})
+		}
+	},[location.state])
+	
+
+	React.useEffect(() => {
 		const contributors = []
 		if (location.state?.contributors) {
 			location.state.contributors.forEach(contributor => {
-				contributors.push(<li><a href={
+				contributors.push(<li
+				key = {contributor[0]}
+				><a href={
 					contributor[1]
 				} className='text-var'>{contributor[0]}</a></li>)
 			})
 		}
 		setContributors(contributors)
-		if (location.state?.links) {
-			location.state.links.forEach(link => {
-				links.push(<li><a href={
-					link[1]
-				} className='text-var notes-link'>{link[0]}</a></li>)
-			})
-		}
-		setLinks(links)
 	}, [location.state])
 
+	React.useEffect(() => {
+		if (urls.length === location.state?.links.length) {
+			const links = []
+			urls.forEach(url => {
+				links.push(<li
+					key = {url[0]}
+					><a href={
+						url[1]
+					} className='text-var'>{url[0]}</a></li>)
+			})
+			setLinks(links)
+			setLoading(false)
+		}
+	}, [location.state?.links.length, urls])
+	
 	return (
+		loading ? <Loader /> :
 		<>
 			<section className=" py-5 cdin px-4 px-sm-3">
 				<div className="container">
