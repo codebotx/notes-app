@@ -124,6 +124,11 @@ body {
     color: var(--body-color);
 }
 
+.ufo {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 /* ::-webkit-scrollbar {
     width: .60rem;
     background-color: var(--scroll-bar-color);

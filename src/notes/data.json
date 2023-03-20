@@ -1,0 +1,30 @@
+[
+	{
+		"name": "Engineering Maths I",
+		"description": "Dummy description for Engineering Mathematics I",
+		"links": [
+			[
+				"Notes",
+				"/static/notes/maths1.pdf"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			],
+			[
+				"Smruti",
+				"https://github.com/smrutid12"
+			]
+		]
+	}
+]

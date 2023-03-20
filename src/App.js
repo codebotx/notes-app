@@ -22,6 +22,7 @@ const Chat = lazy(() => import('./Components/Chatroom'))
 const Todo = lazy(() => import('./Components/Todo'))
 const AboutUs = lazy(() => import('./Components/AboutUs'))
 const Notes = lazy(() => import('./notes/Notes'))
+const PreviewNotes = lazy(() => import('./notes/PreviewNotes'))
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path='/aboutus' element={<Suspense fallback={<Loader />}><AboutUs /></Suspense>} />
             <Route path='/notes' element={<Suspense fallback={<Loader />}><Notes /></Suspense>} />
             <Route path='/visitloader' element={<Loader />} />
+            <Route path = '/previewnotes' element={<Suspense fallback={<Loader />}><PreviewNotes /></Suspense>} />
             <Route
               path='/update-profile'
               element={
