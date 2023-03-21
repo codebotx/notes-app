@@ -70,7 +70,7 @@ export default function Profile() {
       <div className=" py-2 d-flex align-items-center justify-content-start mb-2">
         {isDark &&
           <button className="btn btn-dark" onClick={()=> history("/update-profile")
-          }>Update Profile
+          }>UPDATE PASSWORD
           </button>
         }
         {!isDark &&
