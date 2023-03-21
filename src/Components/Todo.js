@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import 'firebase/compat/firestore'
 import firebase from 'firebase/compat/app';
-import { useAuth } from '../contexts/AuthContext'
 import { v4 as uuidv4 } from 'uuid';
 import {
   Trash,
@@ -50,10 +49,9 @@ export default function Todo() {
       if(snapshot.docs.length > 0) {
         setDonetodos(snapshot.docs.filter(doc => doc.data().done === true).length)
       }
+
     })
-
-
-  }, [])
+  }, [firestore])
 
   const addTodo = async (e) => {
     e.preventDefault();

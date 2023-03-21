@@ -9,25 +9,33 @@ import logo1 from '../assets/img/moon.png'
 import logo2 from '../assets/img/sun.png'
 import { Link } from "react-router-dom";
 
-export default function Header(props) {
-  var [buttonText, setButtonText] = useState("Login");
-  const changeText = (text) => setButtonText(text);
+export default function Header() {
   const { currentUser } = useAuth();
-  var username = "Login";
+  const [buttonText, setButtonText] = useState("Login");
 
-  if (currentUser) {
-    if (currentUser.displayName != null) {
-      username = currentUser.displayName;
-    } else {
-      username = currentUser.email;
-      for (var i = 0; i < username.length; i++) {
-        if (username[i] === "@") {
-          username = username.substring(0, i);
+  React.useEffect(() => {
+    if(currentUser) {
+      if (currentUser.displayName.includes(" ")){
+        var username = currentUser.displayName.slice(0, currentUser.displayName.indexOf(" "));
+        if(username.length< 3)
+          username = currentUser.displayName;
+          if(username.length> 10)
+          username = username.slice(0, 10);
+      } 
+       else {
+          username = currentUser.email;
+          for (var i = 0; i < username.length; i++) {
+            if (username[i] === "@") {
+              username = username.substring(0, i);
+            }
+          }
         }
+        setButtonText(username);
       }
-    }
-  }
-  currentUser ? (buttonText = username) : (buttonText = "Login");
+      else {
+        setButtonText("Login");
+      }
+  }, [currentUser]);
   const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   React.useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

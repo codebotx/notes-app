@@ -7,7 +7,6 @@ import 'firebase/analytics';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import community from '../assets/img/team.svg'
 import { Send } from 'react-bootstrap-icons'
-import { doc } from 'firebase/firestore';
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -67,8 +66,6 @@ function Chat() {
 }
 
 function ChatRoom(props) {
-  // console.log(props.limit);
-
   const dummy = useRef();
   const messagesRef = firestore.collection('messages-production');
   const query = messagesRef.orderBy('createdAt').limitToLast(props.limit);
@@ -81,7 +78,7 @@ function ChatRoom(props) {
     else if(!displayName) setDisplayName(auth.currentUser.email.slice(0, auth.currentUser.email.indexOf("@")));
 
     if (!auth.currentUser.photoURL) auth.currentUser.updateProfile({ photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${displayName}&radius=50` })
-  }, [])
+  }, [displayName])
 
   const sendMessage = async (e) => {
     e.preventDefault();
