@@ -13,10 +13,18 @@ function PreviewNotes(props) {
 	const [contributors, setContributors] = React.useState([])
 	const [links , setLinks] = React.useState([])
 	const [loading, setLoading] = React.useState(true)
+	const [syllabus, setSyllabus] = React.useState('')
 
 
 	React.useEffect(() => {
 		setLoading(true)
+		const syllabusRef = ref(storage, `/UG-BTECH-CSE-2018.pdf`);
+		getDownloadURL(syllabusRef).then((url) => {
+			setSyllabus(url)
+			setLoading(false)
+		}).catch((error) => {
+			console.log(error)
+		});
 		if (location.state?.links) {
 			location.state.links.forEach(link => {
 				const notesRef = ref(storage, `/notes/${link[1]}`);
@@ -78,7 +86,8 @@ function PreviewNotes(props) {
 								{description}
 								</p>
 							<p className='text-var'>
-								Find the syllabus <a href="/static/notes/UG-BTECH-CSE-2018.pdf" className=' text-var'>here</a>.
+								Find the syllabus <a target='_blank' rel="noreferrer"
+								 href= {syllabus} className=' text-var'>here</a>.
 							</p>
 						</div>
 						<img className="img-fluid w-50 d-none d-sm-block" src={ufo} alt="in office" />

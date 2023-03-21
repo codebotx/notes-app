@@ -1,10 +1,27 @@
 import React from 'react'
 import programming from '../assets/img/notes.svg'
 import { Link } from 'react-router-dom'
-// const data = React.lazy(() => import('./data.json'))
 import data from './data.json'
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import Loader from '../Components/Loader'
+
+const storage = getStorage();
 export default function Notes() {
+	const [loading, setLoading] = React.useState(false)
+	const [syllabus, setSyllabus] = React.useState('')
+	React.useEffect(() => {
+		setLoading(true)
+		const syllabusRef = ref(storage, `/UG-BTECH-CSE-2018.pdf`);
+		getDownloadURL(syllabusRef).then((url) => {
+			setSyllabus(url)
+			setLoading(false)
+		}).catch((error) => {
+			console.log(error)
+		});
+	}, [])
+				
 	return (
+		loading ? <Loader /> :
 		<>
 
 			<section className="py-4 px-sm-3 px-4 cdin">
@@ -16,7 +33,9 @@ export default function Notes() {
 							Get started here.
 							<br />
 						</p>
-						<a href="/static/notes/UG-BTECH-CSE-2018.pdf" className=' text-var'>	B.Tech - Syllabus</a>
+						<a target='_blank'
+				rel="noreferrer"
+				href= {syllabus} className=' text-var'>	B.Tech - Syllabus</a>
 					</div>
 					<img className="img-fluid w-50 d-none d-sm-block" src={programming} alt="in office" />
 				</div>
