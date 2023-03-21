@@ -37,7 +37,10 @@ function PreviewNotes(props) {
 			location.state.contributors.forEach(contributor => {
 				contributors.push(<li
 				key = {contributor[0]}
-				><a href={
+				><a
+				target='_blank'
+				rel="noreferrer"
+				 href={
 					contributor[1]
 				} className='text-var'>{contributor[0]}</a></li>)
 			})
@@ -51,7 +54,10 @@ function PreviewNotes(props) {
 			urls.forEach(url => {
 				links.push(<li
 					key = {url[0]}
-					><a href={
+					><a
+					target='_blank'
+					rel="noreferrer"
+					href={
 						url[1]
 					} className='text-var'>{url[0]}</a></li>)
 			})
