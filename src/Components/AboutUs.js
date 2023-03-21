@@ -82,7 +82,7 @@ export default function AboutUs() {
 							marginRight: "10px",
 							color : "#FF5E5B"
 						}} />
-						 Buy us a coffee!
+						 Buy us a coffee!	
 						</a>
 					</div>
 					<div className='mt-3'>
