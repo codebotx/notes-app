@@ -21,15 +21,11 @@ export default function Header() {
           username = currentUser.displayName;
           if(username.length> 10)
           username = username.slice(0, 10);
-      } 
-       else {
-          username = currentUser.email;
-          for (var i = 0; i < username.length; i++) {
-            if (username[i] === "@") {
-              username = username.substring(0, i);
-            }
-          }
-        }
+      }
+      else {
+        username = currentUser.displayName;
+      }
+       
         setButtonText(username);
       }
       else {
