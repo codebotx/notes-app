@@ -1,136 +1,52 @@
-import './assets/css/App.css'
-import 'react-bootstrap'
-import React, { lazy, Suspense } from 'react'
-import { AuthProvider, useAuth } from './contexts/AuthContext'
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
-import './assets/css/style.css'
-import PageNotFound from './Components/PageNotFound'
-import Header from './Components/Navbar'
-import Footer from './Components/Footer'
-import Landingsegment from './Components/Landingsegment'
-import Loader from './Components/Loader'
-import Login from './Components/Login'
-import Signup from './Components/Signup'
-
-// const Signup = lazy(() => import('./Components/Signup'))
-// const Login = lazy(() => import('./Components/Login'))
-
-const ForgotPassword = lazy(() => import('./Components/ForgotPassword'))
-const UpdateProfile = lazy(() => import('./Components/UpdateProfile'))
-const Profile = lazy(() => import('./Components/Profile'))
-const Chat = lazy(() => import('./Components/Chatroom'))
-const Todo = lazy(() => import('./Components/Todo'))
-const AboutUs = lazy(() => import('./Components/AboutUs'))
-const Notes = lazy(() => import('./notes/Notes'))
-const PreviewNotes = lazy(() => import('./notes/PreviewNotes'))
-
-function App() {
-  return (
-    <>
-      <Router>
-        <AuthProvider>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Landingsegment />} />
-            <Route path='/aboutus' element={<Suspense fallback={<Loader />}><AboutUs /></Suspense>} />
-            <Route path='/notes' element={<Suspense fallback={<Loader />}><Notes /></Suspense>} />
-            <Route path='/visitloader' element={<Loader />} />
-            <Route path = '/previewnotes' element={<Suspense fallback={<Loader />}><PreviewNotes /></Suspense>} />
-            <Route
-              path='/update-profile'
-              element={
-                <RequireAuth redirectTo='/login'>
-                  <Suspense fallback={<Loader />}>
-                    <UpdateProfile />
-                  </Suspense>
-                </RequireAuth>
-              }
-            />
-            <Route
-              path='/community'
-              element={
-                <RequireAuth redirectTo='/login'>
-                  <Suspense fallback={<Loader />}>
-                    <Chat />
-                  </Suspense>
-                </RequireAuth>
-              }
-            />
-            <Route
-              path='/taskboard'
-              element={
-                <RequireAuth redirectTo='/login'>
-                  <Suspense fallback={<Loader />}>
-                    <Todo />
-                  </Suspense>
-                </RequireAuth>
-              }
-            />
-            <Route
-              path='/login'
-              element={
-                <IsLoggedIn redirectTo='/profile'>
-                  {/* <Suspense fallback={<Loader />}> */}
-                    <Login />
-                  {/* </Suspense> */}
-                </IsLoggedIn>
-              }
-            />
-            <Route
-              path='/profile'
-              element={
-                <RequireAuth redirectTo='/login'>
-                  <Suspense fallback={<Loader />}>
-                    <Profile />
-                  </Suspense>
-                </RequireAuth>
-              }
-            />
-
-            <Route
-              path='/signup'
-              element={
-                <IsLoggedIn redirectTo='/profile'>
-                  {/* <Suspense fallback={<Loader />}> */}
-                    <Signup />
-                  {/* </Suspense> */}
-                </IsLoggedIn>
-              }
-            />
-            <Route
-              path='/forgot-password'
-              element={
-                <IsLoggedIn redirectTo='/update-profile'>
-                  <Suspense fallback={<Loader />}>
-                    <ForgotPassword />
-                  </Suspense>
-                </IsLoggedIn>
-              }
-            />
-
-
-
-
-            {/* <Route path='/signup' caseSensitive={false} element={<Suspense fallback={<Loader />}><Signup /></Suspense>} /> */}
-            {/* <Route path='/profile' caseSensitive={false} element={<Suspense fallback={<Loader />}><Profile /></Suspense>} /> */}
-            {/* <Route path='/forgot-password' element={<Suspense fallback={<Loader />}><ForgotPassword /></Suspense>} /> */}
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-          <Footer />
-        </AuthProvider>
-      </Router>
-    </>
-  )
+import React from 'react'
+import moon from './assets/img/moonlight.svg'
+import './assets/css/dashboard.css'
+import { Link } from 'react-router-dom'
+import { CupHot } from 'react-bootstrap-icons'
+export default function App() {
+	return (
+		<>
+			<section className="py-4 px-4 px-sm-1 cdin">
+				<div className="container ">
+					<div className="d-sm-flex align-items-center justify-content-between mainc">
+						<div className="img-home">
+							<h1 className="heading">RE<span></span><span className="text-secondary">SOC</span></h1>
+							<p className="lead my-4">
+								RESOC: The coolest academic notes-sharing platform around!
+							</p>
+						</div>
+						<img className="img-fluid w-50 d-none d-sm-block" src={moon} alt="in office" />
+					</div>
+				</div>
+			</section>
+			<div className='mt-3 px-3 px-sm-5'>
+				<div className="container">
+					<p>
+						RESOC is the coolest academic notes-sharing platform around, built by a bunch of tech-savvy students at Silicon Institute, and it's totally free ❤️. You don't have to sell your soul to afford good quality notes anymore. <br></br>
+						<b><Link to='/notes' className='fw text-var'>Check out the notes</Link></b>
+					</p>
+					<p>
+						We have a nifty <Link to="/taskboard" className='text-var'>
+							task section</Link> for you to manage your work.  No more forgetting deadlines and drowning in assignments.
+						Pop over to the <Link to="/community" className='text-var' >community chat page</Link> and give us a holler. We're always happy to help out and connect with like-minded folks. You might even make a new study buddy or two :)
+					</p>
+					<p>
+						Oh, and if you really dig what we're doing here at RESOC, we'd be over the moon if you'd consider sponsoring us. Just head over to the <Link to="/aboutus" className='text-var'>about section</Link> and donate to our talented content creators. Trust us, it really helps keep the site running and lets us add all sorts of fun new features!
+					</p>
+				<div>
+						<a href='https://ko-fi.com/anubhabpatnaik' className='text-var' 
+						target='_blank' rel="noreferrer">
+						<CupHot size={30} style={{
+							marginRight: "10px",
+							color : "#FF5E5B"
+						}}
+						 />
+						
+Ko-fi page
+						</a>
+					</div>
+					</div>
+			</div>
+		</>
+	)
 }
-
-function RequireAuth({ children, redirectTo }) {
-  const { currentUser } = useAuth()
-  return currentUser ? children : <Navigate to={redirectTo} />
-}
-
-function IsLoggedIn({ children, redirectTo }) {
-  const { currentUser } = useAuth()
-  return currentUser ? <Navigate to={redirectTo} /> : children
-}
-
-export default App

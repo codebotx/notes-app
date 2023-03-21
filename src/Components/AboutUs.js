@@ -2,7 +2,7 @@ import React from 'react'
 import astronaut from '../assets/img/astronauthelmet.svg'
 import anubhab from '../assets/img/anubhab.jpeg'
 import { CupHot } from 'react-bootstrap-icons'
-export default function Landingsegment() {
+export default function AboutUs() {
 	return (
 		<>
 		
