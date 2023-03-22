@@ -109,7 +109,7 @@ export default function Notes() {
 								return (
 									<li className='my-1' key={index}>
 										<Link to="/previewnotes" state={{
-											name: item.name,
+											name: item.shortName,
 											description: item.description,
 											links: item.links,
 											contributors: item.contributors

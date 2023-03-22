@@ -1,6 +1,7 @@
 [
 	{
 		"name": "Engg. Maths I",
+		"shortName": "Maths I",
 		"description": "",
 		"links": [
 			[
@@ -31,6 +32,7 @@
 	},
 	{
 		"name": "Constitution of India",
+		"shortName": "CI",
 		"description": "",
 		"links": [
 			[
@@ -66,6 +68,7 @@
 	},
 	{
 		"name": "Basic Electronics Engineering",
+		"shortName": "BE",
 		"description": "",
 		"links": [
 			[
@@ -132,6 +135,7 @@
 	},
 	{
 		"name": "Environmental Science & Engineering",
+		"shortName": "ENVS",
 		"description": "",
 		"links": [
 			[
@@ -169,6 +173,7 @@
 	},
 	{
 		"name": "Basic Electrical Engineering",
+		"shortName": "BEE",
 		"description": "",
 		"links": [
 			[
@@ -202,6 +207,7 @@
 	},
 	{
 		"name": "Data Structures & Algorithms",
+		"shortName": "DSA",
 		"description": "",
 		"links": [
 			[
@@ -243,7 +249,8 @@
 		]
 	},
 	{
-		"name": "Engineering Mathematics II",
+		"name": "Engg. Mathematics II",
+		"shortName": "Maths II",
 		"description": "",
 		"links": [
 			[
@@ -283,6 +290,7 @@
 	},
 	{
 		"name": "Engineering Physics",
+		"shortName": "Physics",
 		"description": "",
 		"links": [
 			[
