@@ -5,7 +5,6 @@ import data from './data.json'
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import Loader from '../Components/Loader'
 import { Search } from 'react-bootstrap-icons';
-import { Form } from 'react-bootstrap'
 
 const storage = getStorage();
 export default function Notes() {
@@ -45,7 +44,7 @@ export default function Notes() {
 		}]
 	])
 	const [loading, setLoading] = React.useState(false)
-	const [syllabus, setSyllabus] = React.useState('')
+	// const [syllabus, setSyllabus] = React.useState('')
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 	React.useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -57,17 +56,6 @@ export default function Notes() {
       mediaQuery.removeEventListener('change', handleChange);
     }
   }, []);
-
-	React.useEffect(() => {
-		setLoading(true)
-		const syllabusRef = ref(storage, `/UG-BTECH-CSE-2018.pdf`);
-		getDownloadURL(syllabusRef).then((url) => {
-			setSyllabus(url)
-			setLoading(false)
-		}).catch((error) => {
-			console.log(error)
-		});
-	}, [])
 	React.useEffect(() => {
 		const searchquery = search.trim().toLowerCase();
 		if (searchquery.length > 0) {
@@ -92,7 +80,7 @@ export default function Notes() {
 							</p>
 							<a target='_blank'
 								rel="noreferrer"
-								href={syllabus} className=' text-var'>	B.Tech - Syllabus</a>
+								href='https://drive.google.com/file/d/1tDEfpGmiLjuT_QCfl42skYxPelJ3AMVS/view?usp=sharing' className=' text-var'>	B.Tech - Syllabus</a>
 						</div>
 						<img className="img-fluid w-50 d-none d-sm-block" src={programming} alt="in office" />
 					</div>

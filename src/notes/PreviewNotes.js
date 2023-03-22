@@ -1,45 +1,19 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import ufo from '../assets/img/note-taking.svg'
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import { getStorage } from 'firebase/storage';
 import Loader from '../Components/Loader';
-const storage = getStorage();
 
 function PreviewNotes(props) {
 	const location = useLocation();
-
 	const { name, description } = location?.state;
-	const [urls, setUrls] = React.useState([])
 	const [contributors, setContributors] = React.useState([])
 	const [links , setLinks] = React.useState([])
 	const [loading, setLoading] = React.useState(true)
-	const [syllabus, setSyllabus] = React.useState('')
 
 
 	React.useEffect(() => {
 		setLoading(true)
-		const syllabusRef = ref(storage, `/UG-BTECH-CSE-2018.pdf`);
-		getDownloadURL(syllabusRef).then((url) => {
-			setSyllabus(url)
-			setLoading(false)
-		}).catch((error) => {
-			console.log(error)
-		});
-		if (location.state?.links) {
-			location.state.links.forEach(link => {
-				const notesRef = ref(storage, `/notes/${link[1]}`);
-				getDownloadURL(notesRef).then((url) => {
-					// console.log(url)
-				setUrls(urls => [...urls, [link[0], url]])
-				}).catch((error) => {
-					console.log(error)
-				});
-			})
-		}
-	},[location.state])
-	
-
-	React.useEffect(() => {
 		const contributors = []
 		if (location.state?.contributors) {
 			location.state.contributors.forEach(contributor => {
@@ -54,26 +28,28 @@ function PreviewNotes(props) {
 			})
 		}
 		setContributors(contributors)
+		const links = []
+		if (location.state?.links) {
+			location.state.links.forEach(link => {
+				links.push(<li
+				key = {link[0]}
+				><a
+				target='_blank'
+				rel="noreferrer"
+				 href={
+					link[1]
+				} className='text-var'>{link[0]}</a></li>)
+			})
+		}
+		setLinks(links)
 	}, [location.state])
 
 	React.useEffect(() => {
-		if (urls.length === location.state?.links.length) {
-			const links = []
-			urls.forEach(url => {
-				links.push(<li
-					key = {url[0]}
-					><a
-					target='_blank'
-					rel="noreferrer"
-					href={
-						url[1]
-					} className='text-var'>{url[0]}</a></li>)
-			})
-			setLinks(links)
+		if (contributors.length === location.state.contributors.length && links.length === location.state.links.length) {
 			setLoading(false)
 		}
-	}, [location.state?.links.length, urls])
-	
+	}, [contributors, links, location.state.contributors.length, location.state.links.length])
+
 	return (
 		loading ? <Loader /> :
 		<>
@@ -87,7 +63,7 @@ function PreviewNotes(props) {
 								</p>
 							<p className='text-var'>
 								Find the syllabus <a target='_blank' rel="noreferrer"
-								 href= {syllabus} className=' text-var'>here</a>.
+								 href= "https://drive.google.com/file/d/1tDEfpGmiLjuT_QCfl42skYxPelJ3AMVS/view?usp=sharing" className=' text-var'>here</a>.
 							</p>
 						</div>
 						<img className="img-fluid w-50 d-none d-sm-block" src={ufo} alt="in office" />
