@@ -14,23 +14,31 @@ export default function Header() {
   const [buttonText, setButtonText] = useState("Login");
 
   React.useEffect(() => {
-    if(currentUser) {
+    if(currentUser && currentUser.displayName) {
       if (currentUser.displayName.includes(" ")){
         var username = currentUser.displayName.slice(0, currentUser.displayName.indexOf(" "));
-        if(username.length< 3)
-          username = currentUser.displayName;
-          if(username.length> 10)
-          username = username.slice(0, 10);
+         if(username.length> 15)
+          username = username.slice(0, 15);
+      }
+      else if(currentUser.displayName.length> 15) {
+        username = currentUser.displayName.slice(0, 15);
       }
       else {
         username = currentUser.displayName;
       }
-       
-        setButtonText(username);
+      setButtonText(username);
+    }
+    else if (currentUser && currentUser.email) {
+      if (currentUser.email.includes("@")){
+        username = currentUser.email.slice(0, currentUser.email.indexOf("@"));
+        if(username.length> 15)
+          username = username.slice(0, 15);
       }
-      else {
-        setButtonText("Login");
-      }
+      setButtonText(username);
+    }
+    else {
+      setButtonText("Login");
+    }
   }, [currentUser]);
   const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   React.useEffect(() => {

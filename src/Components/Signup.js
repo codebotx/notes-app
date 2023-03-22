@@ -32,7 +32,7 @@ export default function Signup() {
         displayName: name,
         photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${name}&radius=50`
       })
-      history('/')
+      // history('/')
     } catch (e) {
       setError('Error signing up')
       if (e.code === 'auth/email-already-in-use') setErrorDef('Email already in use')

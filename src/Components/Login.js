@@ -36,7 +36,7 @@ export default function Login() {
       setErrorDef('')
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      navigate('/')
+      // navigate('/profile')
     } catch (e) {
       setError('Failed to log in')
       if (e.code === 'auth/user-not-found') setErrorDef('No user found with this email')
