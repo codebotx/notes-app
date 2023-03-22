@@ -107,7 +107,7 @@ export default function Notes() {
 							{displayData.map((item, index) => {
 								// console.log(item)
 								return (
-									<li key={index}>
+									<li className='my-1' key={index}>
 										<Link to="/previewnotes" state={{
 											name: item.name,
 											description: item.description,

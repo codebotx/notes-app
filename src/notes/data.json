@@ -20,10 +20,6 @@
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
-			],
-			[
-				"Smruti",
-				"https://github.com/smrutid12"
 			]
 		],
 		"tags": [
@@ -31,6 +27,291 @@
 			"Engineering Maths",
 			"Maths I",
 			"Maths 1"
+		]
+	},
+	{
+		"name": "Constitution of India",
+		"description": "",
+		"links": [
+			[
+				"Notes",
+				"https://docs.google.com/presentation/d/1IMpLtIMpVZP_MQZK9sddsFukRLQSNlxa/edit?usp=sharing&ouid=115613730661041204627&rtpof=true&sd=true"
+			],
+			[
+				"Important Questions",
+				"https://drive.google.com/file/d/1tsD265MUmF_hpQBMVt2uB5AERZnkirhz/view?usp=share_link"
+			],
+			[
+				"Important Questions- End Sem",
+				"https://drive.google.com/file/d/1ednPL-prcbuB96aB3VFSZmXY8_jyBKfp/view?usp=sharing"
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			]
+		],
+		"tags": [
+			"Constitution",
+			"Constitution of India",
+			"Constitution of India- End Sem",
+			"Constitution of India- Mid Sem",
+			"CI"
+		]
+	},
+	{
+		"name": "Basic Electronics Engineering",
+		"description": "",
+		"links": [
+			[
+				"Notes- Hand written",
+				"https://drive.google.com/file/d/1FbcxA5FVOZ_cfG3xDksVro8Kbv6y-iCm/view?usp=sharing"
+			],
+			[
+				"Notes",
+				"https://drive.google.com/file/d/1_TCRzu7Ay8l79_ZEB0yDMlsfOnfxd7RO/view?usp=sharing"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			]
+		],
+		"tags": [
+			"Basic Electronics",
+			"Electronics",
+			"BE",
+			"Basic Electronics- End Sem",
+			"Basic Electronics- Mid Sem"
+		]
+	},
+	{
+		"name": "Communicative & Technical English",
+		"description": "",
+		"links": [
+			[
+				"Notes",
+				"https://drive.google.com/file/d/1dr0t1RH0MSSwWdPm0q4SzWWqSriBa5mU/view?usp=sharing"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			]
+		],
+		"tags": [
+			"Communicative & Technical English",
+			"Communicative & Technical English- End Sem",
+			"Communicative & Technical English- Mid Sem",
+			"CTE",
+			"English"
+		]
+	},
+	{},
+	{
+		"name": "Environmental Science & Engineering",
+		"description": "",
+		"links": [
+			[
+				"Notes MOD1-2",
+				"https://docs.google.com/presentation/d/1QlctaPM2yTdc7HOlrskIbwYBv03sEhhZ/edit?usp=sharing&ouid=115613730661041204627&rtpof=true&sd=true"
+			],
+			[
+				"Notes - Full",
+				"https://docs.google.com/presentation/d/1L1Z2YZDCRSAp5lwrlhS26lpMR41KKKAa/edit?usp=sharing&ouid=115613730661041204627&rtpof=true&sd=true"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			]
+		],
+		"tags": [
+			"Environmental Science & Engineering",
+			"Environmental Science & Engineering- End Sem",
+			"Environmental Science & Engineering- Mid Sem",
+			"ESE",
+			"Environmental Science",
+			"Environmental Engineering",
+			"ENVS"
+		]
+	},
+	{
+		"name": "Basic Electrical Engineering",
+		"description": "",
+		"links": [
+			[
+				"Notes MOD1-2",
+				"https://drive.google.com/file/d/1KLNa-DJ_SKxEZsoABvXWkdL0gypRHUbX/view?usp=sharing"
+			],
+			[
+				"Notes - Full",
+				"https://drive.google.com/file/d/1Fq94L-fo7_AxErLCibSNOEdPg9DOE4p8/view?usp=share_link"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			]
+		],
+		"tags": [
+			"Basic Electrical",
+			"BE",
+			"Basic Electrical Engineering"
+		]
+	},
+	{
+		"name": "Data Structures & Algorithms",
+		"description": "",
+		"links": [
+			[
+				"Notes MOD1-2",
+				"https://drive.google.com/file/d/1QgFsr89ebP9M1mUWDLW9g8UdTqd0q0_Q/view?usp=sharing"
+			],
+			[
+				"Notes (Awesome) - CSE Dept.",
+				"https://drive.google.com/file/d/1rETPdACEnJ_atu2IqHJFDAtysEKri1LP/view?usp=sharing"
+			],
+			[
+				"Codes",
+				"https://drive.google.com/file/d/1YPwmC-fy2uNaQN90CMByziQsYvOW9ZI4/view?usp=sharing"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			],
+			[
+				"Silicon Institute of Technology, Bhubaneswar",
+				"https://www.silicon.ac.in/"
+			]
+		],
+		"tags": [
+			"Data Structures & Algorithms",
+			"DSA",
+			"Data Structures",
+			"Algorithms"
+		]
+	},
+	{
+		"name": "Engineering Mathematics II",
+		"description": "",
+		"links": [
+			[
+				"Notes MOD1-2",
+				"https://drive.google.com/file/d/1kGprBW9Zx-N70q2JHTVWuLecdO41nz-E/view?usp=sharing"
+			],
+			[
+				"Notes - CSE Dept.",
+				"https://drive.google.com/file/d/1EoXWzLhtVSJKDibGgT9u87-DMtjlq2Df/view?usp=sharing"
+			],
+			[
+				"Important Questions",
+				""
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			],
+			[
+				"Silicon Institute of Technology, Bhubaneswar",
+				"https://www.silicon.ac.in/"
+			]
+		],
+		"tags": [
+			"Maths 2",
+			"Maths II",
+			"Mathematics II",
+			"Engineering Mathematics II",
+			"EM II"
+		]
+	},
+	{
+		"name": "Engineering Physics",
+		"description": "",
+		"links": [
+			[
+				"Notes MOD1-2",
+				"https://drive.google.com/file/d/1kGprBW9Zx-N70q2JHTVWuLecdO41nz-E/view?usp=sharing"
+			],
+			[
+				"Notes",
+				"https://drive.google.com/file/d/10g5cej_ebPezyJ__EgwcL9vp7zMNGGDv/view?usp=sharing"
+			],
+			[
+				"Important Questions 1-2",
+				"https://docs.google.com/document/d/19g7i_UAYj1uByZQ3KmCujot907rKe0sl/edit?usp=sharing&ouid=115613730661041204627&rtpof=true&sd=true"
+			],
+			[
+				"Important Questions 3",
+				"https://drive.google.com/file/d/10vPV0Ct6t1PnqW1mPulZn3iIX23c1eat/view?usp=sharing"
+			],
+			[
+				"Previous Year Papers",
+				""
+			]
+		],
+		"Contributors": [
+			[
+				"Anubhab",
+				"https://anubhavp.dev/"
+			]
 		]
 	}
 ]

@@ -3,9 +3,6 @@ import 'firebase/storage';
 import 'firebase/compat/auth'
 import { getStorage } from "firebase/storage";
 
-
-
-// const { getStorage } = require('firebase-admin/storage');
 require('firebase/compat/auth')
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
