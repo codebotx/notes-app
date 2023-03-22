@@ -1,5 +1,5 @@
 import React from 'react'
-import saturn from '../assets/img/saturn.png'
+import planet from '../assets/img/undiscoveredplanet.png'
 export default function UnderConstruction () {
   return (
     <>
@@ -17,7 +17,7 @@ export default function UnderConstruction () {
 							Let's get back to checking out  <a href='/notes' className='text-var'>notes</a>.
 							</p>
 						</div>
-						<img className="img-fluid w-50 d-none d-sm-block" src={saturn} alt="in office" />
+						<img className="img-fluid w-50 d-none d-sm-block" src={planet} alt="in office" />
 					</div>
 				</div>
 			</section>

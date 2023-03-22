@@ -92,6 +92,9 @@ function PreviewNotes(props) {
 					</ul>
 				</div>
 			</div>
+				<div className='p-3 p-sm-5' style={{fontSize: '0.8rem'}}>
+					<a className='text-var' href='/community-guidelines'><b>Disclaimer</b></a>: Please go through our community guidelines for more information on contributions and sponsorships. 
+				</div>
 		</>
 	)
 }
