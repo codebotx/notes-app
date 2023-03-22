@@ -85,7 +85,7 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
@@ -116,7 +116,7 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
@@ -130,7 +130,6 @@
 			"English"
 		]
 	},
-	{},
 	{
 		"name": "Environmental Science & Engineering",
 		"description": "",
@@ -152,7 +151,7 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
@@ -189,7 +188,7 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
@@ -226,7 +225,7 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
@@ -264,7 +263,7 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
@@ -307,11 +306,16 @@
 				""
 			]
 		],
-		"Contributors": [
+		"contributors": [
 			[
 				"Anubhab",
 				"https://anubhavp.dev/"
 			]
+		],
+		"tags": [
+			"Engineering Physics",
+			"Phy",
+			"Physics"
 		]
 	}
 ]
