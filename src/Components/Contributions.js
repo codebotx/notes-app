@@ -135,7 +135,7 @@ export default function Contributions() {
 					<div className="img-home">
 						<h1 className="heading">Share<span></span></h1>
 						<p className="lead my-4">
-							Contact us here to contribute to RESOC
+							Contact us here to share your notes and contribute to RESOC
 						</p>
 					</div>
 					<img className="img-fluid w-50 d-none d-sm-block" src={contributions} alt="in office" />
