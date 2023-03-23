@@ -2,21 +2,22 @@ import React from 'react'
 import astronaut from '../assets/img/astronauthelmet.svg'
 import anubhab from '../assets/img/anubhab.jpeg'
 import { CupHot } from 'react-bootstrap-icons'
+import { Link } from 'react-router-dom'
 export default function AboutUs() {
 	return (
 		<>
-		
+
 			<section className=" pt-4 px-4 px-sm-0">
 				{/* <div className="container "> */}
-					<div className="d-sm-flex align-items-center justify-content-between mainc">
-						<div className="img-home">
-							<h1 className="heading">TEAM<span></span><span className="text-secondary">SOC</span></h1>
-							<p className="lead my-4">
-								The coolest team!
-							</p>
-						</div>
-						<img className="img-fluid w-50 d-none d-sm-block" src={astronaut} alt="in office" />
+				<div className="d-sm-flex align-items-center justify-content-between mainc">
+					<div className="img-home">
+						<h1 className="heading">TEAM<span></span><span className="text-secondary">SOC</span></h1>
+						<p className="lead my-4">
+							The coolest team!
+						</p>
 					</div>
+					<img className="img-fluid w-50 d-none d-sm-block" src={astronaut} alt="in office" />
+				</div>
 				{/* </div> */}
 			</section>
 
@@ -47,7 +48,7 @@ export default function AboutUs() {
 						</li>
 					</ul>
 				</div>
-				<h1 className='mt-3 ps-2'> Contributors</h1>
+				<h1 className='mt-3 ps-2'> CORE TEAM</h1>
 				<div className='mt-3'>
 					<ul style={{
 						listStyleType: "none",
@@ -73,27 +74,30 @@ export default function AboutUs() {
 				</div>
 			</div>
 			<div className="container px-3 px-sm-5">
-					<p>
-						We hope you're having an amazing time on RESOC! Our team has been burning the midnight oil to make your experience on our website as smooth as a baby's butt. We would be incredibly grateful if you could donate to help us cover the costs of keeping this virtual ship afloat. We need to pay for the domain rights, and while we'd love to say that money grows on trees, unfortunately, that's just not the case. You could always buy us a pizza or a coffee, too. We promise we won't say no!
-					</p>
-					<div>
-						<a href='/static/paytm.jpeg' className='text-var' target='_blank' rel="noreferrer">
+				<p>
+					We have an open <Link className='text-var' to='/contributions'>contributions page</Link> for you to contribute to the RESOC community. You'll be added to the list post scrutiny.
+				</p>
+				<p>
+					We hope you're having an amazing time on RESOC! Our team has been burning the midnight oil to make your experience on our website as smooth as a baby's butt. We would be incredibly grateful if you could donate to help us cover the costs of keeping this virtual ship afloat. We need to pay for the domain rights, and while we'd love to say that money grows on trees, unfortunately, that's just not the case. You could always buy us a pizza or a coffee, too. We promise we won't say no!
+				</p>
+				<div>
+					<a href='https://github.com/sponsors/fuzzymfx' className='text-var' target='_blank' rel="noreferrer">
 						<CupHot size={30} style={{
 							marginRight: "10px",
-							color : "#FF5E5B"
+							color: "#FF5E5B"
 						}} />
-						 Buy us a coffee!	
-						</a>
-					</div>
-					<div className='mt-3'>
+						Buy us a coffee!
+					</a>
+				</div>
+				<div className='mt-3'>
 					<p>
 						With love and pizza dreams,
 						<br />
-						- TeamSoc ❤️ 
+						- TeamSoc ❤️
 					</p>
-					</div>
 				</div>
-			
+			</div>
+
 		</>
 	)
 }

@@ -1,11 +1,12 @@
 import React from 'react'
 import blueplanet from '../assets/img/blueplanet.png'
+import { Link } from 'react-router-dom'
 export default function Disclaimer () {
   return (
     <>
-		
       <section className="p-1">
-				<div className="container">
+				<div className="container p-sm-0"
+				>
 					<div className=" m-sm-0 d-sm-flex align-items-center justify-content-between mainc">
 						<div className="img-home">
 							<h1 className="heading">TOS/CG<span></span></h1>
@@ -26,7 +27,7 @@ export default function Disclaimer () {
 						At RESOC, we believe in the power of free and open-source content. Therefore, we want to make it very clear that <b>neither RESOC nor any member of RESOC will ever ask for payment for using our website or downloading our notes</b>. RESOC has an <a href='/static/license.txt' className='text-var'>MIT license</a>, which means that our content is free to use, modify, and distribute. We stand for a community that helps each other grow and we do not partake in activities that involve payment for premium notes or not letting users download notes. Please do not entertain any such requests. We want to maintain the integrity of our community and provide a safe and accessible space for all.
 						</p>
 						<p>
-							<b>Contributing to RESOC</b>: Contributing to RESOC is an excellent way to give back to the community and share your knowledge with the world. We are always looking for contributors. If you are interested in contributing to RESOC, please contact us via the community chat or email. We'll be glad to accept your contributions after scrutiny to ensure that the content is of high quality and is not misleading. As a contributor, you'll be listed in the contributors' list, and you can always add your donations/sponsorship links there. In any case, RESOC will always be happy to help you out, even if you're not able to add your details.
+							<b>Contributing to RESOC</b>: Contributing to RESOC is an excellent way to give back to the community and share your knowledge with the world. We are always looking for contributors. If you are interested in contributing to RESOC, please contact us via the <Link className='text-var' to='/contributions'>contributions page,</Link> community chat or email. We'll be glad to accept your contributions after scrutiny to ensure that the content is of high quality and is not misleading. As a contributor, you'll be listed in the contributors' list, and you can always add your donations/sponsorship links there. In any case, RESOC will always be happy to help you out, even if you're not able to add your details.
 						</p>
 						<p>
 							<b>Funding</b>: We understand that funding is a sensitive topic, which is why we want to make it clear that RESOC reserves the right to claim sole jurisdiction on the donations/sponsorships received via the website. However, if you are a contributor, you are more than welcome to add your donation/sponsorship link to the contributors' list in the <a className='text-var'href="/notes">notes</a> section to directly receive donations. This helps us maintain transparency and avoid conflicts. If you are unable to add your funding information and want us to contribute a part of the donations, we're open to that, and we'll be happy to help.

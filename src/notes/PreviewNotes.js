@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ufo from '../assets/img/note-taking.svg'
 import { getStorage } from 'firebase/storage';
 import Loader from '../Components/Loader';
-
+import { Link } from 'react-router-dom';
 function PreviewNotes(props) {
 	const location = useLocation();
 	const { name, description } = location?.state;
@@ -94,6 +94,7 @@ function PreviewNotes(props) {
 			</div>
 				<div className='p-3 p-sm-5' style={{fontSize: '0.8rem'}}>
 					<a className='text-var' href='/community-guidelines'><b>Disclaimer</b></a>: Please go through our community guidelines for more information on contributions and sponsorships. 
+					<Link to='/contributions' className='text-var'>Contribute to REOSC</Link>
 				</div>
 		</>
 	)

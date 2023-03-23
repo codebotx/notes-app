@@ -14,6 +14,7 @@ import Signup from './Components/Signup'
 import  App  from './App'
 import UnderConstruction from "./Components/UnderConstruction";
 import Disclaimer from "./Components/Disclaimer";
+import Contributions from "./Components/Contributions";
 const ForgotPassword = lazy(() => import('./Components/ForgotPassword'))
 const UpdateProfile = lazy(() => import('./Components/UpdateProfile'))
 const Profile = lazy(() => import('./Components/Profile'))
@@ -110,6 +111,7 @@ ReactDOM.render(
             <Route path="*" element={<PageNotFound />} />
             <Route path="/under-construction" element={<UnderConstruction />} />
             <Route path="/community-guidelines" element={<Disclaimer />} />
+            <Route path="/contributions" element={<Contributions/>} />
           </Routes>
           <Footer />
         </AuthProvider>

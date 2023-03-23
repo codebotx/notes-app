@@ -34,7 +34,7 @@ export default function App() {
 						Oh, and if you really dig what we're doing here at RESOC, we'd be over the moon if you'd consider sponsoring us. Just head over to the <Link to="/aboutus" className='text-var'>about section</Link> and donate to our talented content creators. Trust us, it really helps keep the site running and lets us add all sorts of fun new features!
 					</p>
 				<div>
-						<a href='/static/paytm.jpeg' className='text-var' 
+						<a href='https://github.com/sponsors/fuzzymfx' className='text-var' 
 						target='_blank' rel="noreferrer">
 						<CupHot size={30} style={{
 							marginRight: "10px",
