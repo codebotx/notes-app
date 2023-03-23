@@ -4,9 +4,12 @@ import { Form, Card } from 'react-bootstrap';
 import { auth } from "../firebase";
 import {Link} from "react-router-dom";
 import { CloudUploadFill } from 'react-bootstrap-icons';
+import 'firebase/compat/firestore'
+import firebase from 'firebase/compat/app';
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 const storage = getStorage();
+const firestore = firebase.firestore();
 
 export default function Contributions() {
 	const name =auth.currentUser.displayName? auth.currentUser.displayName : auth.currentUser.email.slice(0, auth.currentUser.email.indexOf('@'));
@@ -81,10 +84,21 @@ export default function Contributions() {
 				setErrdef('');
 				setStatus('Upload is ' + progress + '% done');
 				// Upload completed successfully, now we can get the download URL
+				console.log('Lisitn in contributions');
+			const { uid } = auth.currentUser;
+			firestore
+      .collection("Contributions")
+      .doc(uid)
+      .collection("submits")
+      .add({
+        name: name,
+        email: email,
+				filename : file.name,
+      });
 				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
 					console.log('File available at', downloadURL);
 				});
-			}
+			},
 		);
 	};
 	 React.useEffect(() => {
