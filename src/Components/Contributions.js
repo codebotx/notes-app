@@ -31,6 +31,11 @@ export default function Contributions() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		if(selectedFile.size > 100000000)
+		{
+			setErrdef('File size is too large. Please upload a file less than 100 MB');
+			return;
+		}
 		
 		// Get the file from the input element
 		const file = selectedFile;
@@ -178,19 +183,24 @@ export default function Contributions() {
 										// ref={fileRef}
 										aria-label="Upload" />
 										{isDark &&
-										<button 
-										disabled={selectedFile === null? true : false}
-										className="btn btn-outline-secondary btn-dark" type="submit" id="inputGroupFileAddon04"><CloudUploadFill /></button>}
+										<button disabled={selectedFile === null? true : false && selectedFile.size < 100000000}
+										className="btn ms-1 btn-outline-secondary btn-dark" style={{
+											color: 'var(--text-var)'
+										}} type="submit" id="inputGroupFileAddon04"><CloudUploadFill /></button>}
 										{!isDark &&
-										<button disabled={selectedFile === null? true : false}
-										 className="btn btn-outline-secondary btn-light" type="submit" id="inputGroupFileAddon04"><CloudUploadFill /></button>}
+										<button disabled={selectedFile === null? true : false &&
+											selectedFile.size < 100000000
+										}
+										 className="ms-1 btn btn-outline-secondary btn-light" style={{
+											color: 'var(--text-var)'
+										 }} type="submit" id="inputGroupFileAddon04"><CloudUploadFill /></button>}
 									</div>
 								</div>
 						</Form>
 						<p>
-							Please upload your docs in  pdf or a zip file of pdfs only <b>only</b>.
+							Please upload your file (less than 100 MB) in a pdf format or a zip file of pdfs <b>only</b>.
 						<br />
-							Please go through the <Link to='/community-guidelines' className='text-var'>contributions guidelines</Link> before uploading.
+							Please go through the <Link to='/community-guidelines' className='text-var'>contributions guidelines</Link> before submitting a request.
 							</p>
 					</Card.Body>
 				</Card>
