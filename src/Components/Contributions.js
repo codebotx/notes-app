@@ -184,16 +184,16 @@ export default function Contributions() {
 										aria-label="Upload" />
 										{isDark &&
 										<button disabled={selectedFile === null? true : false && selectedFile.size < 100000000}
-										className="btn ms-1 btn-outline-secondary btn-dark" style={{
+										className="btn btn-outline-secondary btn-dark w-100 mt-2" style={{
 											color: 'var(--text-var)'
-										}} type="submit" id="inputGroupFileAddon04"><CloudUploadFill /></button>}
+										}} type="submit" id="inputGroupFileAddon04">Upload <CloudUploadFill /></button>}
 										{!isDark &&
 										<button disabled={selectedFile === null? true : false &&
 											selectedFile.size < 100000000
 										}
-										 className="ms-1 btn btn-outline-secondary btn-light" style={{
-											color: 'var(--text-var)'
-										 }} type="submit" id="inputGroupFileAddon04"><CloudUploadFill /></button>}
+										 className="btn btn-outline-secondary btn-light w-100 mt-2" style={{
+											color: 'var(--text-var)',
+										 }} type="submit" id="inputGroupFileAddon04">Submit request <CloudUploadFill /></button>}
 									</div>
 								</div>
 						</Form>
