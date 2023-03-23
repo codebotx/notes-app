@@ -2,11 +2,8 @@ import React from 'react'
 import programming from '../assets/img/notes.svg'
 import { Link } from 'react-router-dom'
 import data from './data.json'
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import Loader from '../Components/Loader'
 import { Search } from 'react-bootstrap-icons';
 
-const storage = getStorage();
 export default function Notes() {
 	const [search, setSearch] = React.useState('')
 	const [displayData, setDisplayData] = React.useState([
@@ -43,7 +40,7 @@ export default function Notes() {
 			]
 		}]
 	])
-	const [loading, setLoading] = React.useState(false)
+	// const [loading, setLoading] = React.useState(false)
 	// const [syllabus, setSyllabus] = React.useState('')
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 	React.useEffect(() => {
@@ -67,7 +64,6 @@ export default function Notes() {
 	}, [search])
 
 	return (
-		loading ? <Loader /> :
 			<>
 				<section className="py-4 px-sm-5 px-4 cdin">
 					{/* <div className="container "> */}

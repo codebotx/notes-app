@@ -1,6 +1,5 @@
 import React from 'react'
 import contributions from '../assets/img/contributions.svg'
-import { Subtract } from 'react-bootstrap-icons';
 import { Form, Card } from 'react-bootstrap';
 import { auth } from "../firebase";
 import {Link} from "react-router-dom";
@@ -13,9 +12,7 @@ export default function Contributions() {
 	const name =auth.currentUser.displayName? auth.currentUser.displayName : auth.currentUser.email.slice(0, auth.currentUser.email.indexOf('@'));
 	const email = auth.currentUser.email;
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-	const emailRef = React.useRef()
-	 const [selectedFile, setSelectedFile] = React.useState(null);
-	const nameRef = React.useRef()
+	const [selectedFile, setSelectedFile] = React.useState(null);
 	const [errdef, setErrdef] = React.useState('')
 	const [status, setStatus] = React.useState('')
 	var progress = 0;

@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Card, Button, Form, Alert, Container } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, 
+  // useNavigate
+ } from 'react-router-dom'
 import firebase from 'firebase/compat/app'
 import { auth } from '../firebase'
 import '../assets/css/chatApp.css'
@@ -27,7 +29,7 @@ export default function Login() {
   const [error, setError] = useState('')
   const [errorDef, setErrorDef] = useState('')
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()

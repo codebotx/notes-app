@@ -1,7 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import ufo from '../assets/img/note-taking.svg'
-import { getStorage } from 'firebase/storage';
 import Loader from '../Components/Loader';
 import { Link } from 'react-router-dom';
 function PreviewNotes(props) {
