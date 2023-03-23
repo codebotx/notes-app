@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { Card, Button, Form, FormGroup, Alert, Container } from 'react-bootstrap'
+import { Card, Button, Form, Alert, Container } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, 
+  // useNavigate
+ } from 'react-router-dom'
 import firebase from 'firebase/compat/app'
 import { auth } from '../firebase'
 import '../assets/css/chatApp.css'
@@ -9,7 +11,6 @@ import { Google } from 'react-bootstrap-icons'
 import Loader from './Loader'
 
 export default function Login() {
-  const history = useNavigate()
   const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -28,7 +29,7 @@ export default function Login() {
   const [error, setError] = useState('')
   const [errorDef, setErrorDef] = useState('')
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -37,7 +38,7 @@ export default function Login() {
       setErrorDef('')
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      navigate('/')
+      // navigate('/profile')
     } catch (e) {
       setError('Failed to log in')
       if (e.code === 'auth/user-not-found') setErrorDef('No user found with this email')
@@ -66,8 +67,8 @@ export default function Login() {
   const signInWithGoogle = async() => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const user = await auth.signInWithPopup(provider);
-
-    if(!user.user.photoURL !== 'https://api.dicebear.com/5.x/croodles/svg?seed=' + user.user.displayName + '&radius=50') user.user.updateProfile({ photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${auth.currentUser.displayName}&radius=50` })
+    if(!user.user.photoURL !== 'https://api.dicebear.com/5.x/croodles/svg?seed=' + user.user.displayName.slice(0, user.user.displayName.indexOf(" ")) + '&radius=50')
+    user.user.updateProfile({ photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${auth.currentUser.displayName.slice(0, user.user.displayName.indexOf(" "))}&radius=50` })
   }
 
   if (loading) return (<Loader />)

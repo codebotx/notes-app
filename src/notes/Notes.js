@@ -1,66 +1,129 @@
 import React from 'react'
-import programming from '../assets/img/programming.svg'
+import programming from '../assets/img/notes.svg'
+import { Link } from 'react-router-dom'
+import data from './data.json'
+import { Search } from 'react-bootstrap-icons';
+
 export default function Notes() {
+	const [search, setSearch] = React.useState('')
+	const [displayData, setDisplayData] = React.useState([
+		[{
+			name: '',
+			description: '',
+			links: [
+				{
+					name: '',
+					link: ''
+				}
+			],
+			contributors: [
+				{
+					name: '',
+					link: ''
+				}
+			]
+		},
+		{
+			name: '',
+			description: '',
+			links: [
+				{
+					name: '',
+					link: ''
+				}
+			],
+			contributors: [
+				{
+					name: '',
+					link: ''
+				}
+			]
+		}]
+	])
+	// const [loading, setLoading] = React.useState(false)
+	// const [syllabus, setSyllabus] = React.useState('')
+	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+	React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (event) => setIsDark(event.matches ? true : false);
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    }
+  }, []);
+	React.useEffect(() => {
+		const searchquery = search.trim().toLowerCase();
+		if (searchquery.length > 0) {
+			setDisplayData(data.filter(item => item.tags.some(tag => tag.toLowerCase().includes(searchquery))))
+		}
+		else {
+			setDisplayData(data)
+		}
+	}, [search])
+
 	return (
-		<>
-			
-				<section className="py-4 px-sm-3 px-4 cdin">
+			<>
+				<section className="py-4 px-sm-5 px-4 cdin">
 					{/* <div className="container "> */}
-						<div className="d-sm-flex align-items-center justify-content-between mainc">
-							<div className="img-home">
-								<h1 className="heading">NOTES<span></span></h1>
-								<p className="lead my-4">
-									Get started here.
-								</p>
-							</div>
-							<img className="img-fluid w-50 d-none d-sm-block" src={programming} alt="in office" />
+					<div className="d-sm-flex align-items-center justify-content-between mainc">
+						<div className="img-home">
+							<h1 className="heading">NOTES<span></span></h1>
+							<p className="lead my-4">
+								Get started here.
+								<br />
+							</p>
+							<a target='_blank'
+								rel="noreferrer"
+								href='https://drive.google.com/file/d/1tDEfpGmiLjuT_QCfl42skYxPelJ3AMVS/view?usp=sharing' className=' text-var'>	B.Tech - Syllabus</a>
 						</div>
+						<img className="img-fluid w-50 d-none d-sm-block" src={programming} alt="in office" />
+					</div>
 					{/* </div> */}
 				</section>
-				<div className='px-3 px-sm-5'>
+				<div className='px-1 px-sm-5'>
 					<div className="container px-sm-5">
-
+					<div className=" d-flex mb-3 justify-content-between">
+          <input style={{
+            userScalable: "no",
+          }} type="text" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Search here" onChange={(e) => setSearch(e.target.value)}
+					/>
+          <button type="btn submit" className="btn btn-text-var" style={{
+            background: "none",
+            outline: "dashed 1px",
+            marginLeft: "10px",
+            color: isDark ? "white" : "black", 
+            }}><Search /></button>
+        </div>
 						<ul style={{
 							listStyleType: 'none',
 							padding: '0px',
 						}}>
-							<li><a href='engmath1' className='text-var notes-link'>Engineering Maths I</a></li>
-							<li><a href='engmath2' className='text-var notes-link'>Engineering Maths II</a></li>
-							<li><a href='engphy' className='text-var notes-link'>Engineering Physics</a></li>
-							<li><a href='engchem' className='text-var notes-link'>Engineering Chemistry</a></li>
-							<li><a href='engi' className='text-var notes-link notes-link'>English I</a></li>
-							<li><a href='engii' className='text-var notes-link notes-link'>English II</a></li>
-							<li>
-								<a href='basic-electronics' className='text-var notes-link notes-link'>Basic Electronics</a>
-							</li>
-							<li>
-								<a href='basic-electrical' className='text-var notes-link notes-link'>Basic Electrical</a>
-							</li>
-							<li>
-								<a href='cprog' className='text-var notes-link'>C Programming</a>
-							</li>
-							<li>
-								<a href='dsa' className='text-var notes-link'>Data Structures & ALgorithms</a>
-							</li>
-							<li>
-								<a href='ci' className='text-var notes-link'>Constitution of India</a>
-							</li>
-							<li>
-								<a href='envs' className='text-var notes-link'>Environmental Science</a>
-							</li>
-						</ul>
-						<hr />
-						<ul style={{
-							listStyleType: 'none',
-							padding: '0px',
-						}}>
-							<li><a href='engmath3' className='text-var notes-link'>Engineering Maths III</a></li>
-
+							{displayData.map((item, index) => {
+								// console.log(item)
+								return (
+									<li className='my-1' key={index}>
+										<Link to="/previewnotes" state={{
+											name: item.shortName,
+											description: item.description,
+											links: item.links,
+											contributors: item.contributors
+										}} className='text-var notes-link'>
+											{item.name}
+										</Link>
+									</li>
+								)
+							}
+							)}
 						</ul>
 					</div>
 				</div>
-			
-
-		</>
+				<div className='p-3 p-sm-5' style={{fontSize: '0.8rem'}}>
+					<a className='text-var' href='/community-guidelines'><b>Disclaimer</b></a>: Please go through our community guidelines for more information on contributions and sponsorships. 
+					<br />
+					<Link to='/contributions' className='text-var'>Contribute to REOSC</Link>
+				</div>
+			</>
 	)
 }

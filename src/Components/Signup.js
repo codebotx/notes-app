@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Card, Button, Form, FormGroup, Alert, Container } from 'react-bootstrap'
+import React, { useRef, useState } from 'react'
+import { Card, Button, Form, Alert, Container } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, 
+  // useNavigate
+ } from 'react-router-dom'
 import Loader from './Loader'
 
 
@@ -14,7 +16,7 @@ export default function Signup() {
   const [error, setError] = useState('')
   const [errorDef, setErrorDef] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  // const history = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -32,7 +34,7 @@ export default function Signup() {
         displayName: name,
         photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${name}&radius=50`
       })
-      history('/')
+      // history('/')
     } catch (e) {
       setError('Error signing up')
       if (e.code === 'auth/email-already-in-use') setErrorDef('Email already in use')
