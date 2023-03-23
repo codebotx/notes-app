@@ -12,9 +12,9 @@ import Loader from './Components/Loader'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
 import  App  from './App'
-import UnderConstruction from "./Components/UnderConstruction";
-import Disclaimer from "./Components/Disclaimer";
-import Contributions from "./Components/Contributions";
+const UnderConstruction = lazy(() => import('./Components/UnderConstruction'))
+const Disclaimer = lazy(() => import('./Components/Disclaimer'))
+const Contributions = lazy(() => import('./Components/Contributions'))
 const ForgotPassword = lazy(() => import('./Components/ForgotPassword'))
 const UpdateProfile = lazy(() => import('./Components/UpdateProfile'))
 const Profile = lazy(() => import('./Components/Profile'))
@@ -37,6 +37,8 @@ ReactDOM.render(
             <Route path='/notes' element={<Suspense fallback={<Loader />}><Notes /></Suspense>} />
             <Route path='/visitloader' element={<Loader />} />
             <Route path = '/previewnotes' element={<Suspense fallback={<Loader />}><PreviewNotes /></Suspense>} />
+            <Route path = '/under-construction' element={<Suspense fallback={<Loader />}><UnderConstruction /></Suspense>} />
+            <Route path = '/community-guidelines' element={<Suspense fallback={<Loader />}><Disclaimer /></Suspense>} />
             <Route
               path='/update-profile'
               element={
@@ -108,10 +110,17 @@ ReactDOM.render(
                 </IsLoggedIn>
               }
             />
+            <Route
+              path='/contributions'
+              element={
+                <RequireAuth redirectTo='/login'>
+                  <Suspense fallback={<Loader />}>
+                    <Contributions />
+                  </Suspense>
+                </RequireAuth>
+              }
+            />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/under-construction" element={<UnderConstruction />} />
-            <Route path="/community-guidelines" element={<Disclaimer />} />
-            <Route path="/contributions" element={<Contributions/>} />
           </Routes>
           <Footer />
         </AuthProvider>
