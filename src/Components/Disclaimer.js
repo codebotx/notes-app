@@ -26,10 +26,10 @@ export default function Disclaimer () {
 						At RESOC, we believe in the power of free and open-source content. Therefore, we want to make it very clear that <b>neither RESOC nor any member of RESOC will ever ask for payment for using our website or downloading our notes</b>. RESOC has an <a href='/static/license.txt' className='text-var'>MIT license</a>, which means that our content is free to use, modify, and distribute. We stand for a community that helps each other grow and we do not partake in activities that involve payment for premimum notes or not letting users download notes. Please do not entertain any such requests. We want to maintain the integrity of our community and provide a safe and accessible space for all.
 						</p>
 						<p>
-							<b>Funding</b>: We understand that funding is a sensitive topic, which is why we want to make it clear that RESOC reserves the right to claim sole jurisdiction on the donations/sponsorships received via the website. However, if you are a contributor, you are more than welcome to add your donation/sponsorship link to the contributors' list in the <a className='text-var'href="/notes">notes</a> section so as to directly receive donations. This will help all of us maintain transperancy and avoid conflicts. If you are unable to add your funding information and want us to contribute a part of the donations, we're open to that, and we'll be happy to help.
+							<b>Contributing to RESOC</b>: Contributing to RESOC is an excellent way to give back to the community and share your knowledge with the world. We are always looking for contributors. If you are interested in contributing to RESOC, please contact us via the community chat or email. We'll be glad to accept your contributions after scrutiny to ensure that the content is of high quality and is not misleading. As a contributor, you'll be listed in the contributors' list, and you can always add your donations/sponsorship links there. In any case, RESOC will always be happy to help you out, even if you're not able to add your details.
 						</p>
 						<p>
-							<b>Contributing to RESOC</b>: Contributing to RESOC is an excellent way to give back to the community and share your knowledge with the world. We are always looking for contributors. If you are interested in contributing to RESOC, please contact us via the community chat or email. We'll be glad to accept your contributions after scrutiny to ensure that the content is of high quality and is not misleading. As a contributor, you'll be listed in the contributors' list, and you can always add your donations/sponsorship links there. In any case, RESOC will always be happy to help you out, even if you're not able to add your details.
+							<b>Funding</b>: We understand that funding is a sensitive topic, which is why we want to make it clear that RESOC reserves the right to claim sole jurisdiction on the donations/sponsorships received via the website. However, if you are a contributor, you are more than welcome to add your donation/sponsorship link to the contributors' list in the <a className='text-var'href="/notes">notes</a> section so as to directly receive donations. This helps us maintain transperancy and avoid conflicts. If you are unable to add your funding information and want us to contribute a part of the donations, we're open to that, and we'll be happy to help.
 						</p>
 						<p>
 						<b>The community: </b>We want to create a safe and inclusive community here at RESOC, where everyone is respected and treated with kindness. We ask that all users maintain the essence of our community, which is to help one another learn and grow. Please ensure that you do not hurt sentiments or use language that could be considered offensive or discriminatory. We understand that disagreements may arise, but we ask that all discussions remain civil and respectful. Let's work together to make RESOC a positive and uplifting space for all. If you see any inappropriate behavior, please do not hesitate to report it to us via the community chat or email. We appreciate your cooperation in making RESOC a welcoming community for everyone.
@@ -38,6 +38,11 @@ export default function Disclaimer () {
 						We hope that you find our community guidelines clear and informative. At RESOC, we strive to provide high-quality educational content, and we welcome all feedback, queries, and suggestions. Let's work together to create a better world, one step at a time.
 						</p>
 						</div>
+
+						With love and pizza dreams,
+						<br/>
+						- TeamSoc ❤️
+
 				</div>
 				
     </>
