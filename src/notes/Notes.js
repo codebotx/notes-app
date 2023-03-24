@@ -40,8 +40,6 @@ export default function Notes() {
 			]
 		}]
 	])
-	// const [loading, setLoading] = React.useState(false)
-	// const [syllabus, setSyllabus] = React.useState('')
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 	React.useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -66,7 +64,6 @@ export default function Notes() {
 	return (
 			<>
 				<section className="py-4 px-sm-5 px-4 cdin">
-					{/* <div className="container "> */}
 					<div className="d-sm-flex align-items-center justify-content-between mainc">
 						<div className="img-home">
 							<h1 className="heading">NOTES<span></span></h1>
@@ -80,7 +77,6 @@ export default function Notes() {
 						</div>
 						<img className="img-fluid w-50 d-none d-sm-block" src={programming} alt="in office" />
 					</div>
-					{/* </div> */}
 				</section>
 				<div className='px-1 px-sm-5'>
 					<div className="container px-sm-5">
@@ -101,16 +97,9 @@ export default function Notes() {
 							padding: '0px',
 						}}>
 							{displayData.map((item, index) => {
-								// console.log(item)
 								return (
 									<li className='my-1' key={index}>
-										<Link to={`/previewnotes?data=${encodeURIComponent(JSON.stringify(item))}`}
-										// state={{
-										// 	name: item.shortName,
-										// 	description: item.description,
-										// 	links: item.links,
-										// 	contributors: item.contributors
-										// }} 
+										<Link to={`/previewnotes?id=${index}`}
 										className='text-var notes-link'>
 											{item.name}
 										</Link>

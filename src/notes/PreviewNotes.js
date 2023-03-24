@@ -3,12 +3,14 @@ import { useLocation } from 'react-router-dom';
 import ufo from '../assets/img/note-taking.svg'
 import Loader from '../Components/Loader';
 import { Link } from 'react-router-dom';
+import data from './data.json'
+
 function PreviewNotes(props) {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
-	const data = JSON.parse(decodeURIComponent(params.get('data') || '{}'));
-	// console.log(data)
-	let name = data.name;
+	const id = params.get("id");
+	const displayData = data[id]
+	let name = displayData.shortName;
 	let description = data.description;
 	const [contributors, setContributors] = React.useState([])
 	const [links, setLinks] = React.useState([])
@@ -18,8 +20,8 @@ function PreviewNotes(props) {
 	React.useEffect(() => {
 		setLoading(true)
 		const contributors = []
-		if (data?.contributors) {
-			data.contributors.forEach(contributor => {
+		if (displayData?.contributors) {
+			displayData.contributors.forEach(contributor => {
 				contributors.push(<li
 					key={contributor[0]}
 				><a
@@ -32,8 +34,8 @@ function PreviewNotes(props) {
 		}
 		setContributors(contributors)
 		const links = []
-		if (data?.links) {
-			data.links.forEach(link => {
+		if (displayData?.links) {
+			displayData.links.forEach(link => {
 				links.push(<li
 					key={link[0]}
 				><a
@@ -46,21 +48,20 @@ function PreviewNotes(props) {
 		}
 
 		setLinks(links)
-	}, [])
+	}, [displayData])
 
 	React.useEffect(() => {
-		if (contributors && links && data) {
-			if (contributors?.length === data?.contributors.length && links?.length === data.links.length) {
+		if (contributors && links && displayData) {
+			if (contributors?.length === displayData?.contributors.length && links?.length === displayData.links.length) {
 				setLoading(false)
 			}
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [contributors, links, data])
+	}, [contributors, links, displayData])
 
 	return (
 		loading ? <Loader /> :
 			<>
-				<section className=" py-5 cdin px-4 px-sm-3">
+				<section className=" py-5 cdin px-4 px-sm-0">
 					<div className="container">
 						<div className="d-sm-flex align-items-center justify-content-between mainc">
 							<div className="img-home">
