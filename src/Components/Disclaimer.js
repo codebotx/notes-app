@@ -1,7 +1,23 @@
 import React from 'react'
 import blueplanet from '../assets/img/blueplanet.png'
 import { Link } from 'react-router-dom'
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
 export default function Disclaimer () {
+	React.useEffect(() => {
+    document.title = "RESOC | Community Guidelines"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Community Guidelines',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+    return () => {
+      document.title = "NOTES-SIT | RESOC"
+    }
+	}, [])
   return (
     <>
       <section className="p-1">

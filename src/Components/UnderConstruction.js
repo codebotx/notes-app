@@ -1,9 +1,21 @@
 import React from 'react'
 import planet from '../assets/img/undiscoveredplanet.png'
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
 export default function UnderConstruction () {
+	React.useEffect(() => {
+    document.title = "RESOC | Under Construction"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Under Construction',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+  }, [])
   return (
     <>
-		
       <section className=" py-5 cdin px-4 px-sm-3">
 				<div className="container">
 					<div className="d-sm-flex align-items-center justify-content-between mainc">

@@ -4,10 +4,24 @@ import { useNavigate } from "react-router-dom";
 import profile from "../assets/img/profile-page.svg";
 import { auth } from "../firebase";
 import { Alert } from "react-bootstrap";
-
-
+import { analytics } from "../firebase";
+import { logEvent } from "firebase/analytics";
 
 export default function Profile() {
+  React.useEffect(() => {
+    document.title = "RESOC | Profile"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Profile',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+    return () => {
+      document.title = "NOTES-SIT | RESOC"
+    }
+  }, [])
   const history = useNavigate();
   const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   React.useEffect(() => {

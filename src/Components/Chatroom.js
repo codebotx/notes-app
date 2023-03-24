@@ -7,12 +7,28 @@ import 'firebase/analytics';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import community from '../assets/img/team.svg'
 import { Send } from 'react-bootstrap-icons'
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 
 function Chat() {
+  React.useEffect(() => {
+    document.title = "RESOC | Community"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Community',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+    return () => {
+      document.title = "NOTES-SIT | RESOC"
+    }
+	}, [])
   const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   React.useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

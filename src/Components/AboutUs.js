@@ -3,10 +3,25 @@ import astronaut from '../assets/img/astronauthelmet.svg'
 import anubhab from '../assets/img/anubhab.jpeg'
 import { CupHot } from 'react-bootstrap-icons'
 import { Link } from 'react-router-dom'
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
 export default function AboutUs() {
+	React.useEffect(() => {
+    document.title = "RESOC | About Us"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'About Us',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+    return () => {
+      document.title = "NOTES-SIT | RESOC"
+    }
+	}, [])
 	return (
 		<>
-
 			<section className=" pt-4 px-4 px-sm-0">
 				{/* <div className="container "> */}
 				<div className="d-sm-flex align-items-center justify-content-between mainc">

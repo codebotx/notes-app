@@ -5,9 +5,21 @@ import { Link,
   // useNavigate
  } from 'react-router-dom'
 import Loader from './Loader'
-
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
 
 export default function Signup() {
+  React.useEffect(() => {
+    document.title = "RESOC | Sign Up"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Sign Up',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+  }, [])
   const nameRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()

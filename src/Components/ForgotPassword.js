@@ -3,7 +3,23 @@ import { Form, Card, Alert, Container } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
+import { analytics } from '../firebase'
+import { logEvent } from 'firebase/analytics'
 export default function ForgotPassword() {
+  React.useEffect(() => {
+    document.title = "RESOC | Forgot Password"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Forgot Password',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+    return () => {
+      document.title = "NOTES-SIT | RESOC"
+    }
+	}, [])
   const emailRef = useRef()
   const { resetPassword } = useAuth()
   const [error, setError] = useState('')

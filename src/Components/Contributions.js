@@ -6,12 +6,28 @@ import {Link} from "react-router-dom";
 import { CloudUploadFill } from 'react-bootstrap-icons';
 import 'firebase/compat/firestore'
 import firebase from 'firebase/compat/app';
-
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
+
 const storage = getStorage();
 const firestore = firebase.firestore();
 
 export default function Contributions() {
+	React.useEffect(() => {
+    document.title = "RESOC | Contributions"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Contributions',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+    return () => {
+      document.title = "NOTES-SIT | RESOC"
+    }
+	}, [])
 	const name =auth.currentUser.displayName? auth.currentUser.displayName : auth.currentUser.email.slice(0, auth.currentUser.email.indexOf('@'));
 	const email = auth.currentUser.email;
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);

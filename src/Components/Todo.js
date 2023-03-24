@@ -10,10 +10,24 @@ import {
 } from 'react-bootstrap-icons';
 import { Form } from 'react-bootstrap'
 import office from '../assets/img/intheoffice.svg'
+import { analytics } from '../firebase';
+import { logEvent } from 'firebase/analytics';
 const auth = firebase.auth();
 const collection_used ="Todos-prod"
 
+
 export default function Todo() {
+  React.useEffect(() => {
+    document.title = "RESOC | Taskboard"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Taskboard',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+  }, [])
   
   const firestore = firebase.firestore();
   const [donetodos, setDonetodos] = useState(0);

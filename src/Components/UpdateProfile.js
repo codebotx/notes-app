@@ -2,19 +2,29 @@ import React, { useRef, useState } from 'react'
 import { Form, Alert, } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
-import { auth } from '../firebase';
+import { analytics, auth } from '../firebase';
 import profile from '../assets/img/profile-page.svg';
 import Loader from './Loader';
+import { logEvent } from 'firebase/analytics';
 
 
 export default function UpdateProfile () {
+  React.useEffect(() => {
+    document.title = "RESOC | Update Profile"
+    try{logEvent(analytics, 'page_view', {
+      page_title: 'Update Profile',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+      })
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
+  }, [])
   const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   React.useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (event) => setIsDark(event.matches ? true : false);
-
     mediaQuery.addEventListener('change', handleChange);
-
     return () => {
       mediaQuery.removeEventListener('change', handleChange);
     }

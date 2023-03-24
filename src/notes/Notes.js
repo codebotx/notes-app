@@ -3,8 +3,25 @@ import programming from '../assets/img/notes.svg'
 import { Link } from 'react-router-dom'
 import data from './data.json'
 import { Search } from 'react-bootstrap-icons';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../firebase';
 
 export default function Notes() {
+	React.useEffect(() => {
+		document.title = "RESOC | NOTES"
+		try{logEvent(analytics, 'page_view', {
+			page_title: 'Notes',
+			page_location: window.location.href,
+			page_path: window.location.pathname
+			})
+		} catch (error) {
+			console.error('Error while logging page_view event:', error);
+		}
+		return () => {
+			document.title = "NOTES-SIT | RESOC"
+		}
+	}, [])
+
 	const [search, setSearch] = React.useState('')
 	const [displayData, setDisplayData] = React.useState([])
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
