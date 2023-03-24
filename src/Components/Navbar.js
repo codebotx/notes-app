@@ -8,8 +8,68 @@ import { useAuth } from "../contexts/AuthContext";
 import logo1 from '../assets/img/moon.png'
 import logo2 from '../assets/img/sun.png'
 import { Link } from "react-router-dom";
+import { getAnalytics, logEvent } from "firebase/analytics";
+const analytics = getAnalytics();
 
 export default function Header() {
+  const handleNotesClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'notes_link' });
+	}catch(error){
+		console.error('Error while logging select_content event:', error);
+	}
+  };
+  const handleTaskboardClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'taskboard_link' });
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+  const handleCommunityClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'community_link' });
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+  const handleContributionsClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'contributions_link' });
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+  const handleAboutClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'about_link' });
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+  const handleLoginClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'login_link' });
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+  const handleProfileClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'profile_link' });  
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+  const handleLogoClick = () => {
+    // Track link click
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'logo_link' });
+  }catch(error){
+    console.error('Error while logging select_content event:', error);
+  }
+  };
+
+
   const { currentUser } = useAuth();
   const [buttonText, setButtonText] = useState("Login");
 
@@ -58,7 +118,9 @@ export default function Header() {
         <Container >
           <Nav >
           <Navbar.Brand>
-          <Link to="/">
+          <Link 
+          onClick={handleLogoClick}
+          to="/">
               <img src={logo1} alt="logo" width="30" height="30" className="d-inline-block align-top" />
             </Link>
           </Navbar.Brand>
@@ -70,19 +132,29 @@ export default function Header() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Link to="/notes" className="nav-link">Notes</Link>
-              {currentUser && <Link to="/taskboard" className="nav-link">Tasks</Link>}
-              {!currentUser && <Link to="/login" className="nav-link">Tasks</Link>}
-              {currentUser && <Link to="/community" className="nav-link">Community</Link>}
-              {!currentUser && <Link to="/login" className="nav-link">Community</Link>}
-              {currentUser && <Link to="/contributions" className="nav-link">Contributions</Link>}
-              {!currentUser && <Link to="/login" className="nav-link">Contributions</Link>}
+              <Link
+              onClick={handleNotesClick}
+              to="/notes" className="nav-link">Notes</Link>
+              {currentUser && <Link onclick={handleTaskboardClick}
+               to="/taskboard" className="nav-link">Tasks</Link>}
+              {!currentUser && <Link onclick={handleTaskboardClick} to="/login" className="nav-link">Tasks</Link>}
+              {currentUser && <Link onclick={handleCommunityClick}
+               to="/community" className="nav-link">Community</Link>}
+              {!currentUser && <Link onclick={handleCommunityClick}
+               to="/login" className="nav-link">Community</Link>}
+              {currentUser && <Link onclick={handleContributionsClick}
+               to="/contributions" className="nav-link">Contributions</Link>}
+              {!currentUser && <Link onclick={handleContributionsClick}
+               to="/login" className="nav-link">Contributions</Link>}
               
             </Nav>
             <Nav>
-               <Link to="/aboutus" className="nav-link">About Us</Link>
-               {currentUser && <Link to="/profile" className="nav-link">{buttonText}</Link>}
-              {!currentUser && <Link to="/login" className="nav-link">{buttonText}</Link>}
+               <Link onClick={handleAboutClick} to="/aboutus" className="nav-link">About Us</Link>
+               {currentUser && <Link
+                onclick={handleProfileClick}
+               to="/profile" className="nav-link">{buttonText}</Link>}
+              {!currentUser && <Link onclick={handleProfileClick}
+               to="/login" className="nav-link">{buttonText}</Link>}
             </Nav>
           </Navbar.Collapse>
         </Container>

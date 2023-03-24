@@ -4,37 +4,56 @@ import './assets/css/dashboard.css'
 import { Link } from 'react-router-dom'
 import { CupHot } from 'react-bootstrap-icons'
 import {getAnalytics , logEvent } from "firebase/analytics";
-import firebase from 'firebase/compat/app'
-const analytics = getAnalytics(firebase.app());
+const analytics = getAnalytics();
 export default function App() {
 	React.useEffect(() => {
     // Track pageview
-    logEvent(analytics, 'page_view', { page_title: 'Homepage' });
+		try {
+      logEvent(analytics, 'page_view', { page_title: 'Homepage' });
+    } catch (error) {
+      console.error('Error while logging page_view event:', error);
+    }
   }, []);
+
 
   const handleNotesClick = () => {
     // Track link click
-    logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'notes_link' });
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'notes_link' });
+	}catch(error){
+		console.error('Error while logging select_content event:', error);
+	}
   };
 
   const handleTaskboardClick = () => {
     // Track link click
-    logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'taskboard_link' });
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'taskboard_link' });
+	}catch(error){
+		console.error('Error while logging select_content event:', error);
+	}
   };
 
   const handleCommunityClick = () => {
     // Track link click
-    logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'community_link' });
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'community_link' });
+	}catch(error){
+		console.error('Error while logging select_content event:', error);
+	}
   };
 
   const handleContributionsClick = () => {
     // Track link click
-    logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'contributions_link' });
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'contributions_link' });
+	}catch(error){
+		console.error('Error while logging select_content event:', error);
+	}
   };
 
   const handleAboutClick = () => {
     // Track link click
-    logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'about_link' });
+    try{logEvent(analytics, 'select_content', { content_type: 'link', content_id: 'about_link' });
+	}catch(error){
+		console.error('Error while logging select_content event:', error);
+	}
   };
 
 	return (
