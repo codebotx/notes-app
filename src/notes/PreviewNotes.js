@@ -7,10 +7,10 @@ function PreviewNotes(props) {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
 	const data = JSON.parse(decodeURIComponent(params.get('data') || '{}'));
-	console.log(data)
+	// console.log(data)
 	let name = data.name;
 	let description = data.description;
-	const [contributors, setContributors] = React.useState(["hello"])
+	const [contributors, setContributors] = React.useState([])
 	const [links, setLinks] = React.useState([])
 	const [loading, setLoading] = React.useState(true)
 
@@ -19,30 +19,34 @@ function PreviewNotes(props) {
 		setLoading(true)
 		const contributors = []
 		if (data?.contributors) {
-			data?.contributors.map((contributor, index) => (<li
-				key={index}
-			><a
-				target='_blank'
-				rel="noreferrer"
-				href={
-					contributor[1]
-				} className='text-var'>{contributor[0]}</a></li>))
+			data.contributors.forEach(contributor => {
+				contributors.push(<li
+					key={contributor[0]}
+				><a
+					target='_blank'
+					rel="noreferrer"
+					href={
+						contributor[1]
+					} className='text-var'>{contributor[0]}</a></li>)
+			})
 		}
 		setContributors(contributors)
 		const links = []
 		if (data?.links) {
-			data.links.map((link, index) => (<li
-				key={index}
-			><a
-				target='_blank'
-				rel="noreferrer"
-				href={
-					link[1]
-				} className='text-var'>{link[0]}</a></li>)
-			)
+			data.links.forEach(link => {
+				links.push(<li
+					key={link[0]}
+				><a
+					target='_blank'
+					rel="noreferrer"
+					href={
+						link[1]
+					} className='text-var'>{link[0]}</a></li>)
+			})
 		}
+
 		setLinks(links)
-	}, [data])
+	}, [])
 
 	React.useEffect(() => {
 		if (contributors && links && data) {
