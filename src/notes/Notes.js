@@ -6,40 +6,7 @@ import { Search } from 'react-bootstrap-icons';
 
 export default function Notes() {
 	const [search, setSearch] = React.useState('')
-	const [displayData, setDisplayData] = React.useState([
-		[{
-			name: '',
-			description: '',
-			links: [
-				{
-					name: '',
-					link: ''
-				}
-			],
-			contributors: [
-				{
-					name: '',
-					link: ''
-				}
-			]
-		},
-		{
-			name: '',
-			description: '',
-			links: [
-				{
-					name: '',
-					link: ''
-				}
-			],
-			contributors: [
-				{
-					name: '',
-					link: ''
-				}
-			]
-		}]
-	])
+	const [displayData, setDisplayData] = React.useState([])
 	const [isDark, setIsDark] = React.useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 	React.useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -99,7 +66,7 @@ export default function Notes() {
 							{displayData.map((item, index) => {
 								return (
 									<li className='my-1' key={index}>
-										<Link to={`/previewnotes?id=${index}`}
+										<Link to={`/previewnotes?id=${item.id}`}
 										className='text-var notes-link'>
 											{item.name}
 										</Link>
