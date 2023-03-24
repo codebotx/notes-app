@@ -104,12 +104,14 @@ export default function Notes() {
 								// console.log(item)
 								return (
 									<li className='my-1' key={index}>
-										<Link to="/previewnotes" state={{
+										<Link to={`/previewnotes?data=${encodeURIComponent(JSON.stringify(data))}`}
+										state={{
 											name: item.shortName,
 											description: item.description,
 											links: item.links,
 											contributors: item.contributors
-										}} className='text-var notes-link'>
+										}} 
+										className='text-var notes-link'>
 											{item.name}
 										</Link>
 									</li>
