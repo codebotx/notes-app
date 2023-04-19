@@ -15,6 +15,9 @@ const storage = getStorage();
 export default function Contributions() {
 	React.useEffect(() => {
 		document.title = 'Contributions | RESOC'
+		console.log(process.env.REACT_APP_EMAIL_JS_SERVICE_ID)
+		console.log(process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID)
+		console.log(process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
 		return () => {
 			document.title = 'NOTES-SIT | RESOC'
 		}
