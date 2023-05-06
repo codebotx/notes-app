@@ -8,6 +8,7 @@ import Header from './Components/Navbar'
 import Footer from './Components/Footer'
 import Loader from './Components/Loader'
 import App from './App'
+import Collab from "./Components/Collab";
 const UnderConstruction = lazy(() => import('./Components/UnderConstruction'))
 const Disclaimer = lazy(() => import('./Components/Disclaimer'))
 const Contributions = lazy(() => import('./Components/Contributions'))
@@ -116,6 +117,16 @@ ReactDOM.render(
                 </Suspense>
               </RequireAuth>
             }
+          />
+          <Route
+          path ='/collab'
+          element={
+            <RequireAuth redirectTo='/login'>
+              <Suspense fallback={<Loader />}>
+                <Collab />
+              </Suspense>
+            </RequireAuth>
+          }
           />
           <Route path="*" element={
             <Suspense fallback={<Loader />}>
