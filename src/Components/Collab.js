@@ -11,7 +11,7 @@ import { auth } from "../firebase";
 export default function Collab() {
   const [isDark, setIsDark] = React.useState(
     window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
   //   let list = [];
   const name = auth.currentUser.displayName
@@ -139,44 +139,7 @@ export default function Collab() {
       {section === "assignments" && (
         <div className="p-2 p-sm-5">
           <Card
-            style={{
-              borderRadius: "0.5rem",
-              borderColor: "var(--text-var)",
-              borderWidth: "1px",
-              borderStyle: "dashed",
-              display: "flex",
-              flexDirection: "column",
-              backgroundColor: "var(--bg-dark)",
-            }}
-          >
-            <Card.Body>
-              <div className="d-flex flex-row">
-                <div className="d-flex flex-column justify-content-center">
-                  <img className="profphoto" src={photoURL} alt="" />
-                  <div className="name text-capitalize">Smruti</div>
-                </div>
-                <div className="w-100 mt-3 ms-3">
-                  <InputGroup>
-				  <Form.Control
-                      placeholder="Add subject"
-                      aria-label="Add subject"
-                    />
-                    <Form.Control
-                      placeholder="Add assignment"
-                      aria-label="Add assignment"
-                    />
-					<Form.Control
-                      placeholder="Add deadline"
-                      aria-label="Add deadline"
-                    />
-                    <button className="btn btn-sm btn-dark">Publish</button>
-                  </InputGroup>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card
-            className="mt-3"
+            className="mb-3"
             style={{
               borderRadius: "0.5rem",
               borderColor: "var(--text-var)",
@@ -206,9 +169,8 @@ export default function Collab() {
                     <td>@mdo</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${
-                          isDark ? "btn-light" : "btn-dark"
-                        }`}
+                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
+                          }`}
                       >
                         Work
                       </button>
@@ -221,9 +183,8 @@ export default function Collab() {
                     <td>@fat</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${
-                          isDark ? "btn-light" : "btn-dark"
-                        }`}
+                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
+                          }`}
                       >
                         Work
                       </button>
@@ -236,9 +197,8 @@ export default function Collab() {
                     <td>@mdo</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${
-                          isDark ? "btn-light" : "btn-dark"
-                        }`}
+                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
+                          }`}
                       >
                         Work
                       </button>
@@ -248,6 +208,45 @@ export default function Collab() {
               </Table>
             </Card.Body>
           </Card>
+          <Card
+            style={{
+              borderRadius: "0.5rem",
+              borderColor: "var(--text-var)",
+              borderWidth: "1px",
+              borderStyle: "dashed",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "var(--bg-dark)",
+            }}
+          >
+            <Card.Body>
+              <div className="d-flex flex-row">
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                  <img className="profphoto" src={photoURL} alt="" />
+                  <div className="name text-capitalize">{name}</div>
+                </div>
+                <div className="w-100 mt-3 ms-3">
+                  <InputGroup>
+                    <Form.Control placeholder="Add subject" aria-label="Add subject" />
+                  </InputGroup>
+                  <InputGroup>
+                    <Form.Control
+                      placeholder="Add assignment"
+                      aria-label="Add assignment"
+                    />
+                  </InputGroup>
+                  <InputGroup>
+                    <Form.Control
+                      placeholder="Add deadline"
+                      aria-label="Add deadline"
+                    />
+                    <button className="btn btn-sm btn-dark">Publish</button>
+                  </InputGroup>
+                </div>
+              </div>
+            </Card.Body>
+          </Card>
+
         </div>
       )}
       {section === "Penman" && (
