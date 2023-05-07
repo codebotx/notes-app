@@ -37,36 +37,28 @@ export default function Collab() {
 		</section>
 		<div className='p-2 p-sm-5'>
       
-		{!isDark && section === 'assignments' &&
+		{!isDark && section === 'assignments' && <>
           <button className="mx-1 btn btn-dark" onClick={() => setSection('assignments')}>Assignments</button>
-		}
-		{
-			!isDark && section === 'creators' &&
-					<button className="mx-1 btn btn-light" onClick={() =>setSection('assignments') }>Assignments</button>
-		}
-		{
-			isDark && section === 'assignments' &&
-					<button className="mx-1 btn btn-light" onClick={() => setSection('assignments')}>Assignments</button>
-		}
-		{
-			isDark && section === 'creators' &&
-					<button className="mx-1 btn btn-dark" onClick={() =>setSection('assignments') }>Assignments</button>
-		}
-		{
-			!isDark && section === 'assignments' &&
 					<button className="mx-1 btn btn-light" onClick={() => setSection('creators')}>Creators</button>
+					</>
 		}
 		{
-			!isDark && section === 'creators' &&
+			!isDark && section === 'creators' && <>
+					<button className="mx-1 btn btn-light" onClick={() =>setSection('assignments') }>Assignments</button>
 					<button className="mx-1 btn btn-dark" onClick={() =>setSection('creators') }>Creators</button>
+					</>
 		}
 		{
-			isDark && section === 'assignments' &&
+			isDark && section === 'assignments' && <>
+					<button className="mx-1 btn btn-light" onClick={() => setSection('assignments')}>Assignments</button>
 					<button className="mx-1 btn btn-dark" onClick={() => setSection('creators')}>Creators</button>
+			</>
 		}
 		{
-			isDark && section === 'creators' &&
+			isDark && section === 'creators' && <>
+					<button className="mx-1 btn btn-dark" onClick={() =>setSection('assignments') }>Assignments</button>
 					<button className="mx-1 btn btn-light" onClick={() =>setSection('creators') }>Creators</button>
+			</>
 		}
 		</div>
 
