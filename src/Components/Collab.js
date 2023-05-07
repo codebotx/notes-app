@@ -2,6 +2,9 @@ import React from "react";
 import Partnernship from "../assets/img/Partnership.svg";
 import "firebase/compat/firestore";
 import "../assets/css/chatApp.css";
+import {
+	Trash
+  } from 'react-bootstrap-icons';
 // import firebase from "firebase/compat/app";
 import { InputGroup, Form, Card, Table } from "react-bootstrap";
 // import { v4 as uuidv4 } from "uuid";
@@ -218,6 +221,7 @@ export default function Collab() {
                     <th>Assignments</th>
                     <th>Deadline</th>
                     <th className="ps-2">Contact</th>
+					<th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -235,6 +239,7 @@ export default function Collab() {
                         Contact
                       </button>
                     </td>
+					<td><Trash color="#ff5e5b"/></td>
                   </tr>
                   <tr>
                     <td>2</td>
@@ -250,6 +255,7 @@ export default function Collab() {
                         Contact
                       </button>
                     </td>
+					<td><Trash color="#ff5e5b"/></td>
                   </tr>
                   <tr>
                     <td>3</td>
@@ -265,6 +271,7 @@ export default function Collab() {
                         Contact
                       </button>
                     </td>
+					<td><Trash color="#ff5e5b"/></td>
                   </tr>
                 </tbody>
               </Table>
