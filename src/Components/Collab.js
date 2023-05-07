@@ -138,9 +138,53 @@ export default function Collab() {
         )}
       </div>
       {section === "assignments" && (
-        <div className="p-2 p-sm-5">
+        <div className="p-2 px-sm-5">
           <Card
-            className="mb-3"
+            style={{
+              borderRadius: "0.5rem",
+              borderColor: "var(--text-var)",
+              borderWidth: "1px",
+              borderStyle: "dashed",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "var(--bg-dark)",
+            }}
+          >
+            <Card.Body>
+              <div className="d-flex flex-row">
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                  <img className="profphoto" src={photoURL} alt="" />
+                  <div className="name text-capitalize">{name}</div>
+                </div>
+                <div className="w-100 mt-3 ms-3">
+                  <InputGroup className="mb-2">
+                    <Form.Control
+                      placeholder="Add subject"
+                      aria-label="Add subject"
+                    />
+                  </InputGroup>
+                  <InputGroup>
+                    <Form.Control
+                      as="textarea"
+                      placeholder="Add assignment"
+                      aria-label="Add assignment"
+                    />
+                  </InputGroup>
+
+                  <div className="mt-2">
+                    <button className="btn btn-sm" style={{ color: "#ff5e5b" }}>
+                      Deadline
+                    </button>
+                    <button className="btn btn-sm btn-dark ms-2">
+                      Publish
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Card.Body>
+          </Card>
+          <Card
+            className="mt-3"
             style={{
               borderRadius: "0.5rem",
               borderColor: "var(--text-var)",
@@ -212,50 +256,6 @@ export default function Collab() {
               </Table>
             </Card.Body>
           </Card>
-          <Card
-            style={{
-              borderRadius: "0.5rem",
-              borderColor: "var(--text-var)",
-              borderWidth: "1px",
-              borderStyle: "dashed",
-              display: "flex",
-              flexDirection: "column",
-              backgroundColor: "var(--bg-dark)",
-            }}
-          >
-            <Card.Body>
-              <div className="d-flex flex-row">
-                <div className="d-flex flex-column justify-content-center align-items-center">
-                  <img className="profphoto" src={photoURL} alt="" />
-                  <div className="name text-capitalize">{name}</div>
-                </div>
-                <div className="w-100 mt-3 ms-3">
-                  <InputGroup className="mb-2">
-                    <Form.Control
-                      placeholder="Add subject"
-                      aria-label="Add subject"
-                    />
-                  </InputGroup>
-                  <InputGroup>
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Add assignment"
-                      aria-label="Add assignment"
-                    />
-                  </InputGroup>
-
-                  <div className="mt-2">
-                    <button className="btn btn-sm" style={{ color: "#ff5e5b" }}>
-                      Deadline
-                    </button>
-                    <button className="btn btn-sm btn-dark ms-2">
-                      Publish
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
         </div>
       )}
       {section === "creators" && (
@@ -281,11 +281,13 @@ export default function Collab() {
                     <div className="name mt-2 text-capitalize">{name}</div>
                   </div>
                   <div className="row mt-2">
-                    <div className="col ps-5">Details of fixed length</div>
+                    <div className="col ps-5">
+                      Details of previous work of fixed length
+                    </div>
                   </div>
                   <div className="row">
                     <div className="col text-start">{email}</div>
-                    <div className="col text-end">Price</div>
+                    <div className="col text-end">Quote</div>
                   </div>
                 </Card.Body>
               </Card>
