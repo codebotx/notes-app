@@ -164,6 +164,7 @@ export default function Collab() {
                       style={{
                         backgroundColor: "transparent",
                         color: "var(--text-var)",
+                        borderRadius: "0.4rem",
                       }}
                     />
                   </InputGroup>
@@ -175,6 +176,7 @@ export default function Collab() {
                       style={{
                         background: "transparent",
                         color: "var(--text-var)",
+                        borderRadius: "0.4rem",
                       }}
                     />
                   </InputGroup>
