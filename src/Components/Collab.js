@@ -14,9 +14,7 @@ export default function Collab() {
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
   //   let list = [];
-  const name = auth.currentUser.displayName
-    ? auth.currentUser.displayName
-    : auth.currentUser.email.slice(0, auth.currentUser.email.indexOf("@"));
+  const name = auth.currentUser.displayName.slice(0, auth.currentUser.displayName.indexOf(" "));
   const email = auth.currentUser.email;
   const photoURL = auth.currentUser.photoURL;
   const [section, setSection] = React.useState("assignments");
