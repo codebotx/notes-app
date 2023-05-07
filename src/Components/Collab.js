@@ -161,6 +161,10 @@ export default function Collab() {
                     <Form.Control
                       placeholder="Add subject"
                       aria-label="Add subject"
+                      style={{
+                        backgroundColor: "transparent",
+                        color: "var(--text-var)",
+                      }}
                     />
                   </InputGroup>
                   <InputGroup>
@@ -168,11 +172,19 @@ export default function Collab() {
                       as="textarea"
                       placeholder="Add assignment"
                       aria-label="Add assignment"
+                      style={{
+                        background: "transparent",
+                        color: "var(--text-var)",
+                      }}
                     />
                   </InputGroup>
 
                   <div className="mt-2">
-                    <button className="btn btn-sm" style={{ color: "#ff5e5b" }}>
+                    <button
+                      className="btn btn-sm"
+                      style={{ color: "#ff5e5b" }}
+                      type="date"
+                    >
                       Deadline
                     </button>
                     <button className="btn btn-sm btn-dark ms-2">
@@ -201,9 +213,9 @@ export default function Collab() {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Subject</th>
+                    <th>Assignments</th>
                     <th>Deadline</th>
-                    <th>Work</th>
+                    <th className="ps-2">Contact</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -218,7 +230,7 @@ export default function Collab() {
                           isDark ? "btn-light" : "btn-dark"
                         }`}
                       >
-                        Work
+                        Contact
                       </button>
                     </td>
                   </tr>
@@ -233,7 +245,7 @@ export default function Collab() {
                           isDark ? "btn-light" : "btn-dark"
                         }`}
                       >
-                        Work
+                        Contact
                       </button>
                     </td>
                   </tr>
@@ -248,7 +260,7 @@ export default function Collab() {
                           isDark ? "btn-light" : "btn-dark"
                         }`}
                       >
-                        Work
+                        Contact
                       </button>
                     </td>
                   </tr>
@@ -282,7 +294,7 @@ export default function Collab() {
                   </div>
                   <div className="row mt-2">
                     <div className="col ps-5">
-                      Details of previous work of fixed length
+                      Details of previous Contact of fixed length
                     </div>
                   </div>
                   <div className="row">
