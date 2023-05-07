@@ -3,7 +3,7 @@ import Partnernship from "../assets/img/Partnership.svg";
 import "firebase/compat/firestore";
 import "../assets/css/chatApp.css";
 // import firebase from "firebase/compat/app";
-import {  Card, Table } from "react-bootstrap";
+import { InputGroup, Form, Card, Table } from "react-bootstrap";
 // import { v4 as uuidv4 } from "uuid";
 import { auth } from "../firebase";
 // const collection_used = "Collab-prod";
@@ -13,7 +13,7 @@ export default function Collab() {
     window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
   );
-//   let list = [];
+  //   let list = [];
   const name = auth.currentUser.displayName
     ? auth.currentUser.displayName
     : auth.currentUser.email.slice(0, auth.currentUser.email.indexOf("@"));
@@ -139,6 +139,29 @@ export default function Collab() {
       {section === "assignments" && (
         <div className="p-2 p-sm-5">
           <Card
+            style={{
+              borderRadius: "0.5rem",
+              borderColor: "var(--text-var)",
+              borderWidth: "1px",
+              borderStyle: "dashed",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "var(--bg-dark)",
+            }}
+          >
+            <Card.Body>
+              <InputGroup>
+                <Form.Control
+                  placeholder="Add Assignment"
+                  aria-label="Add Assignment"
+                  aria-describedby="basic-addon2"
+                />
+                <button className="btn btn-sm btn-dark">Publish</button>
+              </InputGroup>
+            </Card.Body>
+          </Card>
+          <Card
+            className="mt-3"
             style={{
               borderRadius: "0.5rem",
               borderColor: "var(--text-var)",
