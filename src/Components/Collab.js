@@ -150,14 +150,29 @@ export default function Collab() {
             }}
           >
             <Card.Body>
-              <InputGroup>
-                <Form.Control
-                  placeholder="Add Assignment"
-                  aria-label="Add Assignment"
-                  aria-describedby="basic-addon2"
-                />
-                <button className="btn btn-sm btn-dark">Publish</button>
-              </InputGroup>
+              <div className="d-flex flex-row">
+                <div className="d-flex flex-column justify-content-center">
+                  <img className="profphoto" src={photoURL} alt="" />
+                  <div className="name text-capitalize">Smruti</div>
+                </div>
+                <div className="w-100 mt-3 ms-3">
+                  <InputGroup>
+				  <Form.Control
+                      placeholder="Add subject"
+                      aria-label="Add subject"
+                    />
+                    <Form.Control
+                      placeholder="Add assignment"
+                      aria-label="Add assignment"
+                    />
+					<Form.Control
+                      placeholder="Add deadline"
+                      aria-label="Add deadline"
+                    />
+                    <button className="btn btn-sm btn-dark">Publish</button>
+                  </InputGroup>
+                </div>
+              </div>
             </Card.Body>
           </Card>
           <Card
