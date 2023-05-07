@@ -210,7 +210,7 @@ export default function Collab() {
             }}
           >
             <Card.Body>
-              <Table className="text-var">
+              <Table className="text-var" responsive>
                 <thead>
                   <tr>
                     <th>#</th>
