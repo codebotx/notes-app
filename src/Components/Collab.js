@@ -11,10 +11,13 @@ import { auth } from "../firebase";
 export default function Collab() {
   const [isDark, setIsDark] = React.useState(
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+      window.matchMedia("(prefers-color-scheme: dark)").matches
   );
   //   let list = [];
-  const name = auth.currentUser.displayName.slice(0, auth.currentUser.displayName.indexOf(" "));
+  const name = auth.currentUser.displayName.slice(
+    0,
+    auth.currentUser.displayName.indexOf(" ")
+  );
   const email = auth.currentUser.email;
   const photoURL = auth.currentUser.photoURL;
   const [section, setSection] = React.useState("assignments");
@@ -79,13 +82,13 @@ export default function Collab() {
             </button>
             <button
               className="mx-1 btn btn-light"
-              onClick={() => setSection("Penman")}
+              onClick={() => setSection("creators")}
             >
-              Penman
+              Creators
             </button>
           </>
         )}
-        {!isDark && section === "Penman" && (
+        {!isDark && section === "creators" && (
           <>
             <button
               className="mx-1 btn btn-light"
@@ -95,9 +98,9 @@ export default function Collab() {
             </button>
             <button
               className="mx-1 btn btn-dark"
-              onClick={() => setSection("Penman")}
+              onClick={() => setSection("creators")}
             >
-              Penman
+              Creators
             </button>
           </>
         )}
@@ -111,13 +114,13 @@ export default function Collab() {
             </button>
             <button
               className="mx-1 btn btn-dark"
-              onClick={() => setSection("Penman")}
+              onClick={() => setSection("creators")}
             >
-              Penman
+              Creators
             </button>
           </>
         )}
-        {isDark && section === "Penman" && (
+        {isDark && section === "creators" && (
           <>
             <button
               className="mx-1 btn btn-dark"
@@ -127,9 +130,9 @@ export default function Collab() {
             </button>
             <button
               className="mx-1 btn btn-light"
-              onClick={() => setSection("Penman")}
+              onClick={() => setSection("creators")}
             >
-              Penman
+              Creators
             </button>
           </>
         )}
@@ -167,8 +170,9 @@ export default function Collab() {
                     <td>@mdo</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
-                          }`}
+                        className={`btn btn-sm ${
+                          isDark ? "btn-light" : "btn-dark"
+                        }`}
                       >
                         Work
                       </button>
@@ -181,8 +185,9 @@ export default function Collab() {
                     <td>@fat</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
-                          }`}
+                        className={`btn btn-sm ${
+                          isDark ? "btn-light" : "btn-dark"
+                        }`}
                       >
                         Work
                       </button>
@@ -195,8 +200,9 @@ export default function Collab() {
                     <td>@mdo</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
-                          }`}
+                        className={`btn btn-sm ${
+                          isDark ? "btn-light" : "btn-dark"
+                        }`}
                       >
                         Work
                       </button>
@@ -225,28 +231,37 @@ export default function Collab() {
                 </div>
                 <div className="w-100 mt-3 ms-3">
                   <InputGroup className="mb-2">
-                    <Form.Control placeholder="Add subject" aria-label="Add subject" />
+                    <Form.Control
+                      placeholder="Add subject"
+                      aria-label="Add subject"
+                    />
                   </InputGroup>
                   <InputGroup>
                     <Form.Control
+                      as="textarea"
                       placeholder="Add assignment"
                       aria-label="Add assignment"
                     />
                   </InputGroup>
-                  <button className="btn" style={{color: '#ff5e5b'}}>Deadline</button>
-                  <InputGroup>
-                    <button className="btn btn-sm btn-dark">Publish</button>
-                  </InputGroup>
+
+                  <div className="mt-2">
+                    <button className="btn btn-sm" style={{ color: "#ff5e5b" }}>
+                      Deadline
+                    </button>
+                    <button className="btn btn-sm btn-dark ms-2">
+                      Publish
+                    </button>
+                  </div>
                 </div>
               </div>
             </Card.Body>
           </Card>
         </div>
       )}
-      {section === "Penman" && (
+      {section === "creators" && (
         <div className="p-2 p-sm-5">
           <div className="row">
-            {/* repeat this col with the list for Penman */}
+            {/* repeat this col with the list for creators */}
             <div className="col">
               <Card
                 style={{
