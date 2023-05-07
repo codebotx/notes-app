@@ -271,13 +271,13 @@ export default function Collab() {
         </div>
       )}
       {section === "creators" && (
-        <div className="p-2 p-sm-5">
+        <div className="p-2 px-sm-5">
           <div className="row">
             {/* repeat this col with the list for creators */}
             <div className="col">
               <Card
                 style={{
-                  width: "18rem",
+                //   width: "18rem",
                   borderRadius: "0.5rem",
                   borderColor: "var(--text-var)",
                   borderWidth: "1px",
@@ -304,6 +304,7 @@ export default function Collab() {
                 </Card.Body>
               </Card>
             </div>
+			
           </div>
         </div>
       )}
