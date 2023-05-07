@@ -224,7 +224,7 @@ export default function Collab() {
                   <div className="name text-capitalize">{name}</div>
                 </div>
                 <div className="w-100 mt-3 ms-3">
-                  <InputGroup>
+                  <InputGroup className="mb-2">
                     <Form.Control placeholder="Add subject" aria-label="Add subject" />
                   </InputGroup>
                   <InputGroup>
@@ -233,18 +233,14 @@ export default function Collab() {
                       aria-label="Add assignment"
                     />
                   </InputGroup>
+                  <button className="btn" style={{color: '#ff5e5b'}}>Deadline</button>
                   <InputGroup>
-                    <Form.Control
-                      placeholder="Add deadline"
-                      aria-label="Add deadline"
-                    />
                     <button className="btn btn-sm btn-dark">Publish</button>
                   </InputGroup>
                 </div>
               </div>
             </Card.Body>
           </Card>
-
         </div>
       )}
       {section === "Penman" && (
