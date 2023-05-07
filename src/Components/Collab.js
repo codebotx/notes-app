@@ -274,7 +274,7 @@ export default function Collab() {
       )}
       {section === "creators" && (
         <div className="p-2 px-sm-5">
-          <div className="row">
+          <div className="row m-0">
             {/* repeat this col with the list for creators */}
             <div className="col">
               <Card
