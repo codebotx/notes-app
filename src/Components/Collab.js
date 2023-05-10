@@ -2,30 +2,24 @@ import React from "react";
 import Partnernship from "../assets/img/Partnership.svg";
 import "firebase/compat/firestore";
 import "../assets/css/chatApp.css";
-import {
-	Trash
-  } from 'react-bootstrap-icons';
-// import firebase from "firebase/compat/app";
+import { Trash } from "react-bootstrap-icons";
 import { InputGroup, Form, Card, Table } from "react-bootstrap";
-// import { v4 as uuidv4 } from "uuid";
 import { auth } from "../firebase";
-// const collection_used = "Collab-prod";
+import Datepicker from "./Datepicker";
 
 export default function Collab() {
   const [isDark, setIsDark] = React.useState(
     window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
-  //   let list = [];
   const name = auth.currentUser.displayName.slice(
     0,
     auth.currentUser.displayName.indexOf(" ")
   );
   const email = auth.currentUser.email;
+  const [deadline, setDeadline] = React.useState("Deadline");
   const photoURL = auth.currentUser.photoURL;
   const [section, setSection] = React.useState("assignments");
-  //   const [collab, setCollab] = React.useState();
-  //   const firestore = firebase.firestore();
 
   React.useEffect(() => {
     document.title = "Collab | RESOC";
@@ -51,6 +45,11 @@ export default function Collab() {
         photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${name}&radius=50`,
       });
   }, [name]);
+  
+  function dateChange(deadline) {
+    console.log(deadline);
+    setDeadline(deadline);
+  };
 
   return (
     <>
@@ -144,6 +143,7 @@ export default function Collab() {
         <div className="p-2 px-sm-5">
           <Card
             style={{
+              // width:"18rem",
               borderRadius: "0.5rem",
               borderColor: "var(--text-var)",
               borderWidth: "1px",
@@ -184,14 +184,15 @@ export default function Collab() {
                     />
                   </InputGroup>
 
-                  <div className="mt-2">
-                    <button
-                      className="btn btn-sm"
-                      style={{ color: "#ff5e5b" }}
-                      type="date"
-                    >
-                      Deadline
-                    </button>
+                  <div className="mt-2 d-flex ">
+                    <div className="dropdown-center">
+                      <button className="btn btn-sm dropdown-toggle" style={{ color: "#ff5e5b" }} type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        {deadline}
+                      </button>
+                      <div className="dropdown-menu dropdown-menu-dark">
+                        <Datepicker dateChange={dateChange} />
+                      </div>
+                    </div>
                     <button className="btn btn-sm btn-dark ms-2">
                       Publish
                     </button>
@@ -221,7 +222,7 @@ export default function Collab() {
                     <th>Assignments</th>
                     <th>Deadline</th>
                     <th className="ps-2">Contact</th>
-					<th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -232,14 +233,15 @@ export default function Collab() {
                     <td>@mdo</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${
-                          isDark ? "btn-light" : "btn-dark"
-                        }`}
+                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
+                          }`}
                       >
                         Contact
                       </button>
                     </td>
-					<td><Trash color="#ff5e5b"/></td>
+                    <td>
+                      <Trash color="#ff5e5b" />
+                    </td>
                   </tr>
                   <tr>
                     <td>2</td>
@@ -248,14 +250,15 @@ export default function Collab() {
                     <td>@fat</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${
-                          isDark ? "btn-light" : "btn-dark"
-                        }`}
+                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
+                          }`}
                       >
                         Contact
                       </button>
                     </td>
-					<td><Trash color="#ff5e5b"/></td>
+                    <td>
+                      <Trash color="#ff5e5b" />
+                    </td>
                   </tr>
                   <tr>
                     <td>3</td>
@@ -264,14 +267,15 @@ export default function Collab() {
                     <td>@mdo</td>
                     <td>
                       <button
-                        className={`btn btn-sm ${
-                          isDark ? "btn-light" : "btn-dark"
-                        }`}
+                        className={`btn btn-sm ${isDark ? "btn-light" : "btn-dark"
+                          }`}
                       >
                         Contact
                       </button>
                     </td>
-					<td><Trash color="#ff5e5b"/></td>
+                    <td>
+                      <Trash color="#ff5e5b" />
+                    </td>
                   </tr>
                 </tbody>
               </Table>
@@ -286,7 +290,7 @@ export default function Collab() {
             <div className="col">
               <Card
                 style={{
-                //   width: "18rem",
+                  //   width: "18rem",
                   borderRadius: "0.5rem",
                   borderColor: "var(--text-var)",
                   borderWidth: "1px",
@@ -313,7 +317,6 @@ export default function Collab() {
                 </Card.Body>
               </Card>
             </div>
-			
           </div>
         </div>
       )}
