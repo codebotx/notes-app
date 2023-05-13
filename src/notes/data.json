@@ -4929,7 +4929,7 @@
   {
     "year": true,
     "id": 125,
-    "name": "Misc.",
+    "name": "7-8 Semester",
     "shortName": "",
     "description": "",
     "links": [],
@@ -4938,6 +4938,92 @@
   },
   {
     "id": 126,
+    "name": "ENTPD",
+    "shortName": "Entrepreneurship Development",
+    "description": "",
+    "links": [
+      [
+        "MOD 1",
+        "https://drive.google.com/file/d/1zutqnr4Fbs6GijQ81mzT0gWIOCvlxFRM/view?usp=sharing"
+      ],
+      [
+        "MOD 2",
+        "https://docs.google.com/presentation/d/1dMdHRJobmlj_azXf_P-T2dl_QE0ZW_gU/edit?usp=sharing&ouid=104433455372147288977&rtpof=true&sd=true"
+      ],
+      [
+        "MOD 3",
+        "https://docs.google.com/presentation/d/1dMdHRJobmlj_azXf_P-T2dl_QE0ZW_gU/edit?usp=sharing&ouid=104433455372147288977&rtpof=true&sd=true"
+      ],
+      [
+        "MOD 4-1",
+        "https://drive.google.com/file/d/1kbilDDaBJ7SoASMns4EiKH_4w93aWL1m/view?usp=sharing"
+      ],
+      [
+        "MOD 4-2",
+        "https://drive.google.com/file/d/1uEMwoVRSFARsSRluuAthWjWOv8jnOEa7/view?usp=sharing"
+      ],
+      [
+        "MOD 5",
+        "https://docs.google.com/presentation/d/1DYQExXNkNlnH9YGStxcxaOHI6wxSIxZp/edit?usp=sharing&ouid=104433455372147288977&rtpof=true&sd=true"
+      ],
+      [
+        "Important Questions",
+        "https://drive.google.com/file/d/1v1hCoaw7PO4FjYOifyxLBikSkuCDyggA/view?usp=sharing"
+      ]
+    ],
+    "contributors": [
+      [
+        "Anubhab Patnaik",
+        "https://anubhavp.dev"
+      ],
+      [
+        "Summet Naik",
+        "https://sumeetnaik.com"
+      ]
+    ],
+    "tags": [
+      "Interview Preparation",
+      "Interview Prep"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "FM",
+    "shortName": "Financial Management",
+    "description": "",
+    "links": [
+      [
+        "Folder",
+        "https://drive.google.com/drive/folders/1b7slglEWK4IPjyiity5NQW2KCe1oh3WX?usp=sharing"
+      ]
+    ],
+    "contributors": [
+      [
+        "Anubhab Patnaik",
+        "https://anubhavp.dev"
+      ],
+      [
+        "Summet Naik",
+        "https://sumeetnaik.com"
+      ]
+    ],
+    "tags": [
+      "Interview Preparation",
+      "Interview Prep"
+    ]
+  },
+  {
+    "year": true,
+    "id": 128,
+    "name": "Interview Preparation",
+    "shortName": "",
+    "description": "",
+    "links": [],
+    "contributors": [],
+    "tags": []
+  },
+  {
+    "id": 129,
     "name": "Interview Preparation",
     "shortName": "Interview Prep",
     "description": "",
