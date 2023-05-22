@@ -204,14 +204,12 @@ export default function Contributions() {
 										// ref={fileRef}
 										aria-label="Upload" />
 									{isDark &&
-										<button disabled={selectedFile === null ? true : false && selectedFile.size < 100000000}
+										<button disabled={selectedFile?.size< 100000000}
 											className="btn btn-outline-secondary btn-dark w-100 mt-2" style={{
 												color: 'var(--text-var)'
 											}} type="submit" id="inputGroupFileAddon04">Upload <CloudUploadFill /></button>}
 									{!isDark &&
-										<button disabled={selectedFile === null ? true : false &&
-											selectedFile.size < 100000000
-										}
+										<button disabled={selectedFile?.size< 100000000}
 											className="btn btn-outline-secondary btn-light w-100 mt-2" style={{
 												color: 'var(--text-var)',
 											}} type="submit" id="inputGroupFileAddon04">Submit request <CloudUploadFill /></button>}
