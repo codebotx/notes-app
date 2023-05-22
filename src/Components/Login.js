@@ -71,7 +71,7 @@ export default function Login() {
   const signInWithGoogle = async() => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const user = await auth.signInWithPopup(provider);
-    if(!user.user.photoURL !== `https://api.dicebear.com/5.x/croodles/svg?seed=${user.user.displayName.slice(0, user.user.displayName.indexOf(" "))}&radius=50`)
+    if(user.user.photoURL !== `https://api.dicebear.com/5.x/croodles/svg?seed=${user.user.displayName.slice(0, user.user.displayName.indexOf(" "))}&radius=50`)
     user.user.updateProfile({ photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${auth.currentUser.displayName.slice(0, user.user.displayName.indexOf(" "))}&radius=50` })
   }
 
