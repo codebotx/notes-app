@@ -16,7 +16,7 @@ export default function AboutUs() {
 				{/* <div className="container "> */}
 				<div className="d-sm-flex align-items-center justify-content-between mainc">
 					<div className="img-home">
-						<h1 className="heading">TEAM<span></span><span className="text-secondary">SOC</span></h1>
+						<h1 className="heading">TEAM<span className="text-secondary">SOC</span></h1>
 						<p className="lead my-4">
 							The coolest team!
 						</p>
