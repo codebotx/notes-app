@@ -40,6 +40,11 @@ export default function Profile() {
   }, []);
   const error = "";
   const errorDef = "";
+  const navigate = React.useCallback(() => {
+    history("/update-profile");
+  }, [history])
+  
+    
   // const [error, setError] = useState("");
   // const [errorDef, setErrorDef] = useState("");
   // const { logout } = useAuth();
@@ -85,16 +90,21 @@ export default function Profile() {
         style={{
           color: '#ff5e5b',
         }}
-        onClick={() => auth.signOut()}>SIGN OUT</button>
+        onClick={
+          React.useCallback(() => {
+            auth.signOut();
+            // history("/");
+            // window.location.reload();
+          }, [])
+        }
+             >SIGN OUT</button>
       <div className=" py-2 d-flex align-items-center justify-content-start mb-2">
         {isDark &&
-          <button className="btn btn-dark" onClick={()=> history("/update-profile")
-          }>UPDATE PROFILE
+          <button className="btn btn-dark" onClick={navigate}>UPDATE PROFILE
           </button>
         }
         {!isDark &&
-          <button className="btn btn-light" onClick={()=> history("/update-profile")
-        }>UPDATE PROFILE
+          <button className="btn btn-light" onClick={navigate}>UPDATE PROFILE
         </button>
         }
       </div>
