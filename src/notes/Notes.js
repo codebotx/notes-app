@@ -62,7 +62,9 @@ export default function Notes() {
 					<div className=" d-flex mb-3 justify-content-between">
 						<input style={{
 							userScalable: "no",
-						}} type="text" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Search here" onChange={(e) => setSearch(e.target.value)}
+						}} type="text" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Search here" onChange={
+							React.useCallback((e) => setSearch(e.target.value), [])
+						}
 						/>
 						<button type="btn submit" className="btn btn-text-var" style={{
 							background: "none",
