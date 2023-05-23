@@ -45,7 +45,7 @@ export default function Todo() {
     })
   }, [firestore])
 
-  const addTodo = async (e) => {
+  const addTodo = React.useCallback(async (e) => {
     e.preventDefault();
     const { uid } = auth.currentUser;
     await firestore
@@ -67,7 +67,7 @@ export default function Todo() {
       },
     ]);
     setInput("");
-  }
+  }, [firestore, input, todos]);
   return (<>
     <section className=" py-4 px-4 px-sm-1 cdin">
       {/* <div className="container "> */}
@@ -98,27 +98,29 @@ export default function Todo() {
         style={{
           paddingLeft: "0px",
         }}
-        onClick={() => 
+        onClick={
+          React.useCallback(() => 
           firestore.collection(collection_used).doc(auth.currentUser.uid).collection('Todos').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 if(doc.data().done === true) {
                   doc.ref.delete();
                 }
             });
-        })
-        }><s className='text-var'>DELETE DONE</s></button>   
+        }), [firestore])
+      }><s className='text-var'>DELETE DONE</s></button>   
         <br/>
         <button className="btn"
         style={{
           color: '#ff5e5b',
           paddingLeft: "0px",
         }}
-        onClick={() => 
+        onClick={
+          React.useCallback(() => 
           firestore.collection(collection_used).doc(auth.currentUser.uid).collection('Todos').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 doc.ref.delete();
             });
-        })
+        }), [firestore])
         }>DELETE ALL</button>
         
         </p>}
