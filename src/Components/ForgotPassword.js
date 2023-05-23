@@ -17,7 +17,7 @@ export default function ForgotPassword() {
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
 
-  async function handleSubmit(event) {
+  const handleSubmit = React.useCallback(async (event) => {
     event.preventDefault()
     try {
       setMessage('')
@@ -31,7 +31,9 @@ export default function ForgotPassword() {
       setErrorDef(err.message)
     }
     setLoading(false)
-  }
+  }, [resetPassword])
+
+
   React.useEffect(() => {
     const timeoutId = setTimeout(() => {
       setError('')

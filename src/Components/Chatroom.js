@@ -85,7 +85,7 @@ function Chat() {
 
 function ChatRoom(props) {
   const dummy = useRef();
-  const messagesRef = firestore.collection('messages-production');
+  const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limitToLast(props.limit);
   const [messages] = useCollectionData(query, { idField: 'id' });
   const [formValue, setFormValue] = useState('');
@@ -98,7 +98,7 @@ function ChatRoom(props) {
     if (!auth.currentUser.photoURL) auth.currentUser.updateProfile({ photoURL: `https://api.dicebear.com/5.x/croodles/svg?seed=${displayName}&radius=50` })
   }, [displayName])
 
-  const sendMessage = async (e) => {
+  const sendMessage = React.useCallback(async (e) => {
     e.preventDefault();
 
     const { uid, photoURL, } = auth.currentUser;
@@ -114,6 +114,8 @@ function ChatRoom(props) {
     setFormValue('');
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
+  , [messagesRef, formValue, displayName])
+    
 
   return (
     <main className='main p-2 p-sm-4' >
@@ -122,7 +124,11 @@ function ChatRoom(props) {
 
       <div className='d-flex justify-content-between'>
         <Form className='form mx-4 my-3' onSubmit={sendMessage}>
-          <input className='form-control form-control-sm' value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Start typing " />
+          <input className='form-control form-control-sm' value={formValue} onChange={
+            React.useCallback(
+              (e) => setFormValue(e.target.value),
+              []
+            )} placeholder="Start typing " />
           <button type="btn submit" disabled={!formValue} className="btn mx-1" style={{ background: "none", outline: "none", color: props.dark ? "white" : "black", }}><Send /></button>
         </Form>
       </div>

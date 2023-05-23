@@ -36,7 +36,7 @@ export default function Contributions() {
 	}, []);
 	const [downloadLink, setDownloadLink] = React.useState("");
 
-	const handleSubmit = (e) => {
+	const handleSubmit = React.useCallback((e) => {
 		e.preventDefault()
 		if (selectedFile.size > 100000000) {
 			setErrdef('File size is too large. Please upload a file less than 100 MB');
@@ -126,7 +126,8 @@ export default function Contributions() {
 					);
 			},
 		);
-	};
+	}, [selectedFile, downloadLink, name, email, firestore, storage]);
+
 	React.useEffect(() => {
 		const timeoutId = setTimeout(() => {
 			setErrdef('')
@@ -200,7 +201,10 @@ export default function Contributions() {
 								<div className="input-group">
 									<input type="file" className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
 										// value={selectedFile}
-										onChange={(e) => setSelectedFile(e.target.files[0])}
+										onChange={
+											React.useCallback(
+												(e) => setSelectedFile(e.target.files[0]), [])
+										}
 										// ref={fileRef}
 										aria-label="Upload" />
 									{isDark &&
