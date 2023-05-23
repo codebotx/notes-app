@@ -13,6 +13,10 @@ const firestore = firebase.firestore();
 
 
 function Chat() {
+  const handleLoadMore = React.useCallback(() => {
+    setLimit(prev => prev + 25)
+      },[])
+  
   React.useEffect(() => {
 		document.title = 'Community | RESOC'
 		return () => {
@@ -66,10 +70,10 @@ function Chat() {
         }>SIGN OUT</button>
       <div className=" py-2 d-flex align-items-center justify-content-start mb-2">
         {isDark &&
-          <button className="btn btn-dark" onClick={() => setLimit(limit + 25)}>Load More</button>
+          <button className="btn btn-dark" onClick={handleLoadMore}>Load More</button>
         }
         {!isDark &&
-          <button className="btn btn-light" onClick={() => setLimit(limit + 25)}>Load More</button>
+          <button className="btn btn-light" onClick={handleLoadMore}>Load More</button>
         }
       </div>
       <ChatRoom dark={isDark} limit={limit}
