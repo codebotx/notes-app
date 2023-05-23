@@ -58,18 +58,18 @@ export default function Contributions() {
 				// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 				progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 				progress = progress.toFixed(2);
-				console.log(`Upload is  ${progress} + % done`);
+				console.log(`Upload is  ${progress} % done`);
 				switch (snapshot.state) {
 					case 'paused':
 						console.log('Upload is paused');
 						setStatus('Upload is paused');
 						break;
 					case 'running':
-						setStatus(`Upload is running and ${progress} + % done`);
+						setStatus(`Upload is running and ${progress} % done`);
 						console.log('Upload is running');
 						break;
 					default:
-						setStatus(`Upload is ${progress} + % done`);
+						setStatus(`Upload is ${progress} % done`);
 				}
 			},
 			(error) => {
@@ -204,12 +204,12 @@ export default function Contributions() {
 										// ref={fileRef}
 										aria-label="Upload" />
 									{isDark &&
-										<button disabled={selectedFile?.size< 100000000}
+										<button disabled={!(selectedFile?.size< 100000000)}
 											className="btn btn-outline-secondary btn-dark w-100 mt-2" style={{
 												color: 'var(--text-var)'
 											}} type="submit" id="inputGroupFileAddon04">Upload <CloudUploadFill /></button>}
 									{!isDark &&
-										<button disabled={selectedFile?.size< 100000000}
+										<button disabled={!(selectedFile?.size< 100000000)}
 											className="btn btn-outline-secondary btn-light w-100 mt-2" style={{
 												color: 'var(--text-var)',
 											}} type="submit" id="inputGroupFileAddon04">Submit request <CloudUploadFill /></button>}
