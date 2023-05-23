@@ -13,9 +13,6 @@ const firestore = firebase.firestore();
 
 
 function Chat() {
-  const handleLoadMore = React.useCallback(() => {
-    setLimit(prev => prev + 25)
-      },[])
   
   React.useEffect(() => {
 		document.title = 'Community | RESOC'
@@ -37,6 +34,9 @@ function Chat() {
   }, []);
   
   const [limit, setLimit] = useState(25);
+  const handleLoadMore = React.useCallback(() => {
+    setLimit(prev => prev + 25)
+      },[])
   return (<>
     <section className="py-4 px-4 px-sm-1 cdin">
       {/* <div className="container "> */}
