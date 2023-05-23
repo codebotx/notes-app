@@ -21,7 +21,7 @@ export default function Signup() {
   const [loading, setLoading] = useState(false)
   // const history = useNavigate()
 
-  async function handleSubmit(event) {
+  const handleSubmit = React.useCallback(async (event) => {
     event.preventDefault()
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
       return setError('Passwords do not match')
@@ -51,7 +51,7 @@ export default function Signup() {
     }
     setLoading(false)
     return null
-  }
+  }, [signup])
   React.useEffect(() => {
     const timeoutId = setTimeout(() => {
       setError('')
