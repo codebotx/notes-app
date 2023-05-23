@@ -85,7 +85,7 @@ function Chat() {
 
 function ChatRoom(props) {
   const dummy = useRef();
-  const messagesRef = firestore.collection('messages');
+  const messagesRef = firestore.collection('messages-production');
   const query = messagesRef.orderBy('createdAt').limitToLast(props.limit);
   const [messages] = useCollectionData(query, { idField: 'id' });
   const [formValue, setFormValue] = useState('');
