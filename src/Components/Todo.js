@@ -130,7 +130,9 @@ export default function Todo() {
          onSubmit={addTodo}>
           <input style={{
             userScalable: "no",
-          }} type="text" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Add new task" value={input} onChange={e => setInput(e.target.value)} />
+          }} type="text" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Add new task" value={input} onChange={
+            React.useCallback((e) => setInput(e.target.value), [setInput])
+          } />
           <button type="btn submit" disabled={!input} className="btn btn-text-var" style={{
             background: "none",
             outline: "dashed 1px",
