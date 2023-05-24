@@ -165,6 +165,7 @@ export default function Todo() {
                         color: isDark ? "white" : "black",
                         paddingLeft: "0px",
                       }}
+                      // skipcq: JS-0417
                       onClick={() =>
                         firestore
                           .collection(collection_used)
@@ -195,6 +196,7 @@ export default function Todo() {
                       outline: "none",
                       color: isDark ? "white" : "black",
                     }}
+                    // skipcq: JS-0417
                     onClick={() =>
                       firestore
                         .collection(collection_used)
