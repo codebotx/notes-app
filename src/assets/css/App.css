@@ -101,10 +101,10 @@ html {
         color: white;
     }
 
-    srch {
+    /* srch {
         background-color: #1a1a1a;
         color: white;
-    }
+    } */
 
     .text-var {
         color: var(--text-var);

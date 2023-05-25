@@ -36,7 +36,7 @@ export default function Contributions() {
 	}, []);
 	const [downloadLink, setDownloadLink] = React.useState("");
 
-	const handleSubmit = (e) => {
+	const handleSubmit = React.useCallback((e) => {
 		e.preventDefault()
 		if (selectedFile.size > 100000000) {
 			setErrdef('File size is too large. Please upload a file less than 100 MB');
@@ -58,18 +58,18 @@ export default function Contributions() {
 				// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 				progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 				progress = progress.toFixed(2);
-				console.log(`Upload is  ${progress} + % done`);
+				console.log(`Upload is  ${progress} % done`);
 				switch (snapshot.state) {
 					case 'paused':
 						console.log('Upload is paused');
 						setStatus('Upload is paused');
 						break;
 					case 'running':
-						setStatus(`Upload is running and ${progress} + % done`);
+						setStatus(`Upload is running and ${progress} % done`);
 						console.log('Upload is running');
 						break;
 					default:
-						setStatus(`Upload is ${progress} + % done`);
+						setStatus(`Upload is ${progress} % done`);
 				}
 			},
 			(error) => {
@@ -126,7 +126,8 @@ export default function Contributions() {
 					);
 			},
 		);
-	};
+	}, [selectedFile, downloadLink, name, email, firestore, storage]);
+
 	React.useEffect(() => {
 		const timeoutId = setTimeout(() => {
 			setErrdef('')
@@ -200,18 +201,19 @@ export default function Contributions() {
 								<div className="input-group">
 									<input type="file" className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
 										// value={selectedFile}
-										onChange={(e) => setSelectedFile(e.target.files[0])}
+										onChange={
+											React.useCallback(
+												(e) => setSelectedFile(e.target.files[0]), [])
+										}
 										// ref={fileRef}
 										aria-label="Upload" />
 									{isDark &&
-										<button disabled={selectedFile === null ? true : false && selectedFile.size < 100000000}
+										<button disabled={!(selectedFile?.size< 100000000)}
 											className="btn btn-outline-secondary btn-dark w-100 mt-2" style={{
 												color: 'var(--text-var)'
 											}} type="submit" id="inputGroupFileAddon04">Upload <CloudUploadFill /></button>}
 									{!isDark &&
-										<button disabled={selectedFile === null ? true : false &&
-											selectedFile.size < 100000000
-										}
+										<button disabled={!(selectedFile?.size< 100000000)}
 											className="btn btn-outline-secondary btn-light w-100 mt-2" style={{
 												color: 'var(--text-var)',
 											}} type="submit" id="inputGroupFileAddon04">Submit request <CloudUploadFill /></button>}

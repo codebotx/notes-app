@@ -33,7 +33,11 @@ export default function UpdateProfile() {
   const [loading, setLoading] = useState(false)
   const history = useNavigate()
 
-  function handleSubmit(event) {
+  const navigateToProfile = React.useCallback(() => {
+    history('/profile')
+  }, [history])
+
+  const  handleSubmit = React.useCallback((event) =>{
     event.preventDefault()
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError('Passwords do not match')
@@ -72,7 +76,7 @@ export default function UpdateProfile() {
         setLoading(false)
       }
       
-  }
+  }, [currentUser.displayName, currentUser.email, history, updateEmail, updatePassword, updateProfileName])
   React.useEffect(() => {
     const timeoutId = setTimeout(() => {
       setError('')
@@ -136,10 +140,10 @@ export default function UpdateProfile() {
                 color: '#ff5e5b',
               }}
               type='submit'>UPDATE</button>  {isDark ?
-                <button className=" mt-2 btn btn-dark" onClick={() => history('/profile')}
+                <button className=" mt-2 btn btn-dark" onClick={navigateToProfile}
                 >CANCEL
                 </button> :
-                <button className=" mt-2 btn btn-light" onClick={() => history('/profile')}
+                <button className=" mt-2 btn btn-light" onClick={navigateToProfile}
                 >CANCEL
                 </button>}
           </Form>
