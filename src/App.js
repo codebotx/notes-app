@@ -50,9 +50,8 @@ export default function App() {
               community chat page
             </Link>{" "}
             and give us a holler. We&apos;re always happy to help out and
-            connect with like-minded folks. You might even make a new study
-            buddy or two! We&apos;re looking for active contributions and
-            you&apos;re always welcome to{" "}
+            connect with like-minded folks. We&apos;re looking for active
+            contributions and you&apos;re always welcome to{" "}
             <Link to="/contributions" className="text-var">
               contribute
             </Link>{" "}
