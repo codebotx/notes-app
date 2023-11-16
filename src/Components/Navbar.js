@@ -112,7 +112,7 @@ export default function Header() {
             </Nav>
             <Nav>
               <Link to="/team" className="nav-link">
-                Team
+                About Us
               </Link>
               {currentUser && (
                 <Link to="/profile" className="nav-link">
@@ -189,7 +189,7 @@ export default function Header() {
             </Nav>
             <Nav>
               <Link to="/team" className="nav-link">
-                Team
+                About Us
               </Link>
               {currentUser && (
                 <Link to="/profile" className="nav-link">

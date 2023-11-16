@@ -32,12 +32,11 @@ export default function App() {
             RESOC is the coolest academic notes-sharing platform around, built
             by a bunch of tech-savvy students at Silicon Institute, and
             it&apos;s totally free ❤️. You don&apos;t have to sell your soul to
-            afford good quality notes anymore. <br></br>
-            <b>
-              <Link to="/notes" className="fw text-var">
-                Check out the notes
-              </Link>
-            </b>
+            afford{" "}
+            <Link to="/notes" className="fw text-var">
+              good quality notes
+            </Link>{" "}
+            anymore. <br />
           </p>
           <p>
             We have a nifty{" "}
