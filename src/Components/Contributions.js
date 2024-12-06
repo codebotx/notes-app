@@ -7,7 +7,6 @@ import { CloudUploadFill } from 'react-bootstrap-icons';
 import 'firebase/compat/firestore'
 import firebase from 'firebase/compat/app';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import emailjs from '@emailjs/browser';
 export default function Contributions() {
 	React.useEffect(() => {
 		document.title = 'Contributions | RESOC'
@@ -61,12 +60,12 @@ export default function Contributions() {
 				console.log(`Upload is  ${progress} % done`);
 				switch (snapshot.state) {
 					case 'paused':
-						console.log('Upload is paused');
-						setStatus('Upload is paused');
+						console.log('Upload paused');
+						setStatus('Upload paused');
 						break;
 					case 'running':
-						setStatus(`Upload is running and ${progress} % done`);
-						console.log('Upload is running');
+						setStatus(`Uploading ${progress} %`);
+						console.log('Uploading');
 						break;
 					default:
 						setStatus(`Upload is ${progress} % done`);
@@ -93,7 +92,7 @@ export default function Contributions() {
 			},
 			() => {
 				setErrdef('');
-				setStatus(`Upload is ${progress} % done`);
+				setStatus(`Uploaded ${progress} %`);
 				// Upload completed successfully, now we can get the download URL
 				const { uid } = auth.currentUser;
 				firestore
@@ -102,28 +101,13 @@ export default function Contributions() {
 					.collection("submits")
 					.add({
 						name,
-						email, 
+						email,
 						filename: file.name,
 					});
 				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
 					setDownloadLink(downloadURL);
 					console.log('File available at', downloadURL);
 				});
-				emailjs.send(
-					process.env.REACT_APP_EMAIL_JS_SERVICE_ID
-					, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, {
-					name,
-					email,
-					receiver: process.env.REACT_APP_EMAIL_ADMIN,
-					filename: file.name,
-					downloadURL: downloadLink,
-				}, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
-					.then((result) => {
-						console.log(result.text);
-					}, (error) => {
-						console.log(error.text);
-					}
-					);
 			},
 		);
 	}, [selectedFile, downloadLink, name, email, firestore, storage]);
@@ -208,12 +192,12 @@ export default function Contributions() {
 										// ref={fileRef}
 										aria-label="Upload" />
 									{isDark &&
-										<button disabled={!(selectedFile?.size< 100000000)}
+										<button disabled={!(selectedFile?.size < 100000000)}
 											className="btn btn-outline-secondary btn-dark w-100 mt-2" style={{
 												color: 'var(--text-var)'
 											}} type="submit" id="inputGroupFileAddon04">Upload <CloudUploadFill /></button>}
 									{!isDark &&
-										<button disabled={!(selectedFile?.size< 100000000)}
+										<button disabled={!(selectedFile?.size < 100000000)}
 											className="btn btn-outline-secondary btn-light w-100 mt-2" style={{
 												color: 'var(--text-var)',
 											}} type="submit" id="inputGroupFileAddon04">Submit request <CloudUploadFill /></button>}
@@ -222,8 +206,10 @@ export default function Contributions() {
 						</Form>
 						<p>
 
-							{downloadLink?
-								<span> Here is the <b><a href={downloadLink} target='_blank' rel='noreferrer noopener' className='text-var'> download link.</a></b>
+							{downloadLink ?
+								<span>
+									Your file has been uploaded successfully.<span> Here is the <b><a href={downloadLink} target='_blank' rel='noreferrer noopener' className='text-var'> download link.</a></b>
+									</span> You can now  either update the <a href='https://github.com/fuzzymf/resoc/blob/main/src/notes/data.json' className='text-var'>notes record file </a> and raise a <a href='https://github.com/resoc/fuzzymf' className='text-var'> pull request</a> for the same, <b>or</b> you can email us the link and mention the subject and branch at <a href="mailto:anubhabr50@gmail.com" className='text-var'>anubhabr50@gmail.com</a>
 								</span>
 								: <span>You&apos;ll get your file link for you to share with friends here.</span>}
 						</p>
