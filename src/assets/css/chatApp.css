@@ -1,3 +1,22 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --sent-background-color: #f0e6ff;
+        /* Soft lilac, leaning towards a subtle purple tint */
+        --received-background-color: #f7f7fa;
+        /* Light, slightly warm gray for better contrast and elegance */
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --sent-background-color: #6c63ff;
+        /* Vibrant purple for sent messages */
+        --received-background-color: #2a2a2a;
+        /* Dark neutral gray for received messages */
+    }
+}
+
+
 .main {
     border-radius: 1rem;
     border-color: --var(--body-bg);
@@ -38,7 +57,7 @@ button:disabled {
 }
 
 .para {
-    max-width: 500px;
+    max-width: 450px;
     line-height: 24px;
     /* padding: 10px 10px; */
     border-radius: 25px;
@@ -49,16 +68,53 @@ button:disabled {
 
 .message {
     display: flex;
-    /* align-items: center; */
+    justify-content: flex-start;
+    margin-bottom: 15px;
 }
 
 .sent {
     flex-direction: row-reverse;
+    align-items: flex-end;
 }
 
 .profphoto {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin: 2px 5px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    margin-bottom: 5px;
+}
+
+.sent .profphoto {
+    left: auto;
+    right: -10px;
+}
+
+.message-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.message-bubble {
+    max-width: 450px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--message-background-color);
+    margin-left: 30px;
+    /* Adjust spacing to accommodate the profile picture */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sent .message-bubble {
+    background-color: var(--sent-background-color);
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.received .message-bubble {
+    background-color: var(--received-background-color);
+    /* White for received messages */
 }
